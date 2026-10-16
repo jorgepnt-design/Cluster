@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Dialogs from "../components/Dialogs.astro";
+import LaunchBanner from "../components/LaunchBanner.astro";
 import { site } from "../config/site";
 import { url } from "../lib/cities";
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
@@ -58,6 +59,7 @@ const ogImage = new URL(url("/og-image.png"), Astro.site).href;
     >
       Zum Inhalt springen
     </a>
+    <LaunchBanner />
     <Header />
     <main id="inhalt" class="flex-1">
       <slot />

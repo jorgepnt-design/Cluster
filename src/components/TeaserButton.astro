@@ -3,7 +3,10 @@
  * Download des kostenlosen Teasers.
  * Ohne Lead-Endpunkt (forms.teaserLeadEndpoint = null): direkter Link auf das PDF.
  * Mit Endpunkt: kurzes E-Mail-Formular, danach Download.
+ * Liegt das PDF noch nicht in public/downloads/teaser/, öffnet sich ein Hinweis „in Kürze verfügbar“.
  */
+import fs from "node:fs";
+import path from "node:path";
 import { forms } from "../config/site";
 import { getCity, teaserHref } from "../lib/cities";
 
@@ -18,13 +21,18 @@ interface Props {
 const { slug, label = "Teaser (gratis)", variant = "secondary", size = "md", class: extra = "" } = Astro.props;
 const city = getCity(slug)!;
 const href = teaserHref(city);
+const available = fs.existsSync(path.join(process.cwd(), "public", "downloads", "teaser", city.files.teaser));
 const cls = ["btn", variant === "primary" ? "btn-primary" : "btn-secondary", size === "sm" ? "btn-sm" : "", extra]
   .filter(Boolean)
   .join(" ");
 ---
 
 {
-  forms.teaserLeadEndpoint ? (
+  !available ? (
+    <button type="button" class={cls} data-soon-dialog data-city={city.name} aria-haspopup="dialog">
+      {label}
+    </button>
+  ) : forms.teaserLeadEndpoint ? (
     <button type="button" class={cls} data-teaser-dialog data-city={city.name} data-href={href} aria-haspopup="dialog">
       {label}
     </button>

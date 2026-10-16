@@ -1,7 +1,7 @@
 ---
 import NetworkGraphic from "./NetworkGraphic.astro";
 import { url } from "../lib/cities";
-import { site } from "../config/site";
+import { site, launch } from "../config/site";
 
 const facts = [
   { value: "39", label: "Städte" },
@@ -15,6 +15,7 @@ const facts = [
   <div class="container-page grid items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
     <div>
       <p class="rubric">European Cluster Intelligence</p>
+      {launch.comingSoon && <p class="chip chip-hypothese mt-4">In Kürze verfügbar</p>}
       <h1 class="mt-5 text-[2.1rem] leading-[1.12] sm:text-5xl lg:text-[3.4rem]">
         Standortanalysen für 39 Städte – belegt, vergleichbar, europäisch.
       </h1>

@@ -16,6 +16,15 @@ export const site = {
 };
 
 /**
+ * Vorstart-Modus: zeigt auf allen Seiten den Hinweis, dass das Angebot in Kürze verfügbar ist.
+ * Zum offiziellen Start auf false setzen.
+ */
+export const launch = {
+  comingSoon: true,
+  notice: "Das Angebot ist in Kürze verfügbar.",
+};
+
+/**
  * Formulare – noch ohne eigene Server-Logik.
  * endpoint = null  → Fallback (E-Mail-Programm bzw. direkter Download)
  * endpoint = URL   → Formular wird per POST dorthin geschickt (z. B. Formspree)

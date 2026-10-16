@@ -33,6 +33,30 @@ import { url } from "../lib/cities";
   </div>
 </dialog>
 
+<dialog class="modal" id="soon-dialog" aria-labelledby="soon-dialog-title" data-email={site.email}>
+  <div class="border-b border-grey-line px-6 py-4 flex items-start justify-between gap-4">
+    <div>
+      <p class="rubric">Kostenloser Teaser</p>
+      <h2 id="soon-dialog-title" class="mt-2 text-xl" data-slot="title">Teaser</h2>
+    </div>
+    <form method="dialog">
+      <button class="flex h-9 w-9 items-center justify-center border border-grey-line hover:bg-grey-bg" aria-label="Schließen">
+        <svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5"></path></svg>
+      </button>
+    </form>
+  </div>
+  <div class="px-6 py-5">
+    <p class="font-medium">Der Teaser ist in Kürze verfügbar.</p>
+    <p class="mt-2 text-grey-strong">
+      Schreiben Sie uns eine kurze E-Mail – wir senden Ihnen den Teaser, sobald er bereitsteht.
+    </p>
+    <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+      <a class="btn btn-primary" data-slot="mailto" href={`mailto:${site.email}`}>Teaser per E-Mail anfordern</a>
+      <form method="dialog"><button class="btn btn-secondary w-full">Schließen</button></form>
+    </div>
+  </div>
+</dialog>
+
 {
   forms.teaserLeadEndpoint && (
     <dialog class="modal" id="teaser-dialog" aria-labelledby="teaser-dialog-title">
@@ -82,6 +106,7 @@ import { url } from "../lib/cities";
 <script>
   const buy = document.getElementById("buy-dialog") as HTMLDialogElement | null;
   const teaser = document.getElementById("teaser-dialog") as HTMLDialogElement | null;
+  const soon = document.getElementById("soon-dialog") as HTMLDialogElement | null;
 
   document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
@@ -92,6 +117,16 @@ import { url } from "../lib/cities";
       buy.querySelector("[data-slot=price]")!.textContent = buyBtn.dataset.price ?? "";
       (buy.querySelector("[data-slot=mailto]") as HTMLAnchorElement).href = buyBtn.dataset.mailto ?? "";
       buy.showModal();
+      return;
+    }
+
+    const soonBtn = target.closest<HTMLElement>("[data-soon-dialog]");
+    if (soonBtn && soon) {
+      const city = soonBtn.dataset.city ?? "";
+      soon.querySelector("[data-slot=title]")!.textContent = `Teaser ${city}`;
+      (soon.querySelector("[data-slot=mailto]") as HTMLAnchorElement).href =
+        `mailto:${soon.dataset.email}?subject=${encodeURIComponent(`Teaser ${city} anfordern`)}`;
+      soon.showModal();
       return;
     }
 
@@ -107,7 +142,7 @@ import { url } from "../lib/cities";
   });
 
   // Klick auf den abgedunkelten Hintergrund schließt das Fenster
-  [buy, teaser].forEach((d) =>
+  [buy, teaser, soon].forEach((d) =>
     d?.addEventListener("click", (e) => {
       if (e.target === d) d.close();
     }),
