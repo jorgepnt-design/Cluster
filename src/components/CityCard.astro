@@ -1,0 +1,51 @@
+---
+import BuyButton from "./BuyButton.astro";
+import TeaserButton from "./TeaserButton.astro";
+import { url, type City } from "../lib/cities";
+
+interface Props {
+  city: City;
+}
+const { city } = Astro.props;
+const search = [city.name, city.region, city.corridor, city.subtitle].join(" ").toLowerCase();
+---
+
+<li
+  class="flex flex-col border border-grey-line bg-white transition-colors hover:border-green-line"
+  data-city-card
+  data-slug={city.slug}
+  data-name={city.name}
+  data-region={city.region}
+  data-search={search}
+>
+  <div class="flex flex-1 flex-col p-5 sm:p-6">
+    <p class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-grey-strong">{city.region}</p>
+    <h3 class="mt-2 text-2xl">
+      <a href={url(`/staedte/${city.slug}`)} class="text-ink no-underline hover:text-green-dark hover:underline decoration-green-line underline-offset-4">
+        {city.name}
+      </a>
+    </h3>
+    <p class="mt-3 font-serif text-[1.05rem] italic leading-snug text-ink">{city.teaser_headline}</p>
+
+    <dl class="mt-5 grid grid-cols-2 border-t border-grey-line">
+      {
+        city.kpis.slice(0, 2).map((k, i) => (
+          <div class:list={["flex flex-col pt-4", i === 1 && "border-l border-grey-line pl-4", i === 0 && "pr-3"]}>
+            <dt class="order-2 mt-1 text-xs leading-snug text-grey-strong">
+              {k.label} <span class="whitespace-nowrap">({k.source_note})</span>
+            </dt>
+            <dd class="kpi-value order-1 text-xl">{k.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <div class="flex flex-col gap-2 border-t border-grey-line p-4 xs:flex-row xs:flex-wrap sm:px-6">
+    <TeaserButton slug={city.slug} size="sm" class="xs:flex-1" />
+    <BuyButton slug={city.slug} product="snapshot" size="sm" class="xs:flex-[1.4]" />
+  </div>
+  <a href={url(`/staedte/${city.slug}`)} class="border-t border-grey-line px-4 py-3 text-sm text-green-dark no-underline hover:bg-grey-bg sm:px-6">
+    Details zu {city.name} <span aria-hidden="true">→</span>
+  </a>
+</li>
