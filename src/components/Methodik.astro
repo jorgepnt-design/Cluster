@@ -1,0 +1,64 @@
+---
+import SectionHead from "./SectionHead.astro";
+
+const steps = [
+  { title: "Recherche", text: "Amtliche Statistik, Förderdatenbanken, Hochschul- und Clusterangaben für jede Stadt nach demselben Raster." },
+  { title: "Fakten mit Quelle", text: "Jede Zahl erhält Quelle und Stand. Was sich nicht belegen lässt, wird nicht als Fakt geführt." },
+  { title: "Clusterlandkarte", text: "Initiativen, Forschungseinrichtungen und Unternehmen des Standorts in einer Übersicht." },
+  { title: "FR/IT-Benchmarks", text: "Vergleich mit Clustern in Frankreich und Italien, einschließlich EUCLES-Labelstatus." },
+  { title: "Korridor", text: "Der grenzüberschreitende oder regionale Raum, in dem der Standort tatsächlich wirkt." },
+  { title: "Budget- und Vergaberahmen", text: "Förderprogramme und Vergabewege, über die Projekte finanziert werden können." },
+];
+
+const status = [
+  { cls: "chip-fakt", name: "Fakt", text: "Durch eine genannte Quelle belegt, mit Stand-Datum." },
+  { cls: "chip-hypothese", name: "Hypothese", text: "Begründete Einschätzung auf Basis der Fakten – als solche gekennzeichnet." },
+  { cls: "chip-offen", name: "Nicht geprüft", text: "Relevanter Punkt, der im Rahmen der Analyse nicht verifiziert werden konnte." },
+];
+---
+
+<section id="methodik" class="scroll-mt-16 py-16 md:py-24" aria-labelledby="methodik-title">
+  <div class="container-page">
+    <SectionHead num="03" rubric="Methodik" title="Sechs Schritte, ein Raster für alle 39 Städte." id="methodik-title">
+      <p>Die Analysen sind vergleichbar, weil sie identisch aufgebaut sind. Und sie sind überprüfbar, weil jede Aussage ihren Status trägt.</p>
+    </SectionHead>
+
+    <ol class="mt-12 grid gap-px border border-grey-line bg-grey-line sm:grid-cols-2 lg:grid-cols-3">
+      {
+        steps.map((s, i) => (
+          <li class="bg-white p-6">
+            <p class="kpi-value text-3xl text-green">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="mt-3 text-lg">{s.title}</h3>
+            <p class="mt-2 text-[0.95rem] text-grey-strong">{s.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-[1fr_1.3fr]">
+      <div>
+        <h3 class="text-2xl">Drei Kennzeichnungen</h3>
+        <p class="mt-3 text-grey-strong">
+          Jede Aussage in den Analysen ist mit einem der drei Status markiert. So sehen Sie auf einen Blick, worauf Sie sich
+          stützen können und wo eigene Prüfung sinnvoll ist.
+        </p>
+      </div>
+      <dl class="divide-y divide-grey-line border-y border-grey-line">
+        {
+          status.map((s) => (
+            <div class="grid gap-2 py-4 sm:grid-cols-[9rem_1fr] sm:items-baseline">
+              <dt>
+                <span class:list={["chip", s.cls]}>{s.name}</span>
+              </dt>
+              <dd class="text-[0.95rem]">{s.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <p class="mt-10 border-l-2 border-sand pl-4 text-[0.95rem]">
+      <strong class="font-medium">Grundsatz:</strong> Keine erfundenen Budgets, keine Scores ohne Herleitung, keine behaupteten Kooperationen.
+    </p>
+  </div>
+</section>

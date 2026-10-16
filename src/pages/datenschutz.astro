@@ -1,0 +1,26 @@
+---
+import Legal from "../layouts/Legal.astro";
+import { site } from "../config/site";
+---
+
+<Legal title="Datenschutzerklärung" description="Datenschutzerklärung von LOC-IN.">
+  <h2>1. Verantwortliche Stelle</h2>
+  <p>{site.person}, {site.address.street}, {site.address.city}, {site.email}</p>
+  <h2>2. Hosting und Server-Logfiles</h2>
+  <p>[PLATZHALTER: Hosting-Anbieter (z. B. Vercel oder GitHub Pages), Art der Logdaten, Rechtsgrundlage, Speicherdauer]</p>
+  <h2>3. Schriftarten</h2>
+  <p>
+    [PLATZHALTER: Diese Website lädt die Schriften Lora und Inter über Google Fonts. Alternativ Schriften lokal
+    einbinden und diesen Abschnitt anpassen.]
+  </p>
+  <h2>4. Kein Tracking, keine Cookies</h2>
+  <p>Diese Website setzt derzeit keine Analyse- oder Marketing-Werkzeuge und keine Cookies ein.</p>
+  <h2>5. Kontaktformular und E-Mail</h2>
+  <p>[PLATZHALTER: Zweck, Rechtsgrundlage Art. 6 Abs. 1 lit. b/f DSGVO, ggf. Formular-Dienstleister, Speicherdauer]</p>
+  <h2>6. Teaser-Download und Newsletter</h2>
+  <p>[PLATZHALTER: Erhebung der E-Mail-Adresse, Einwilligung, eingesetztes Newsletter-Tool, Widerruf]</p>
+  <h2>7. Zahlungsabwicklung</h2>
+  <p>[PLATZHALTER: Eingesetzter Zahlungsanbieter (z. B. Stripe, Lemon Squeezy, Paddle, Digistore24) und Datenübermittlung]</p>
+  <h2>8. Ihre Rechte</h2>
+  <p>[PLATZHALTER: Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Beschwerde bei der Aufsichtsbehörde]</p>
+</Legal>

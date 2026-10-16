@@ -1,0 +1,61 @@
+---
+import SectionHead from "./SectionHead.astro";
+import { shop, formatPrice } from "../config/shop";
+import { site } from "../config/site";
+
+const faqs = [
+  {
+    q: "Was ist enthalten?",
+    a: `Der kostenlose Teaser (2 Seiten) zeigt die Kernaussage und ausgewählte Kennzahlen. Der Standort-Snapshot (5 Seiten, ${formatPrice(shop.pricesNet.snapshot)} netto) enthält belegte Fakten mit Quelle, die Clusterlandkarte, den Vergleich mit Clustern in Frankreich und Italien inklusive EUCLES-Labelstatus, den grenzüberschreitenden Korridor sowie den Budget- und Vergaberahmen.`,
+  },
+  {
+    q: "Wie aktuell sind die Daten?",
+    a: `Datenstand aller Analysen ist der ${site.stand}. Jede Kennzahl trägt zusätzlich ihr eigenes Stand-Datum, weil amtliche Statistiken zu unterschiedlichen Zeitpunkten erscheinen.`,
+  },
+  {
+    q: "Wie erhalte ich den Download?",
+    a: "Den Teaser laden Sie direkt auf der jeweiligen Stadtseite herunter. Den Snapshot erhalten Sie nach dem Kauf als PDF-Download. Solange der Online-Kauf noch nicht freigeschaltet ist, bestellen Sie per E-Mail und erhalten das PDF mit Rechnung per E-Mail.",
+  },
+  {
+    q: "Erhalte ich eine Rechnung mit Umsatzsteuer?",
+    a: `Ja. Alle Preise sind Nettopreise ${shop.vatNote}. Sie erhalten eine ordnungsgemäße Rechnung mit ausgewiesener Umsatzsteuer. ${site.b2bNote}`,
+  },
+  {
+    q: "Kann ich ein Clusterprofil beauftragen?",
+    a: `Ja. Das Clusterprofil (8–12 Seiten, ${formatPrice(shop.pricesNet.profil)} netto) wird individuell für Ihre Fragestellung erstellt. Nutzen Sie dafür das Kontaktformular und wählen Sie die Stadt aus.`,
+  },
+  {
+    q: "Was bedeutet „Nicht geprüft“?",
+    a: "Ein Punkt ist relevant, konnte im Rahmen der Analyse aber nicht verifiziert werden – etwa weil keine öffentliche Quelle vorliegt. Wir weisen das offen aus, statt eine Annahme als Fakt darzustellen.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<section id="faq" class="scroll-mt-16 border-t border-grey-line bg-grey-bg py-16 md:py-24" aria-labelledby="faq-title">
+  <div class="container-page grid gap-10 lg:grid-cols-[1fr_1.6fr]">
+    <SectionHead num="06" rubric="FAQ" title="Häufige Fragen." id="faq-title" />
+    <div class="divide-y divide-grey-line border-y border-grey-line">
+      {
+        faqs.map((f) => (
+          <details class="group py-1">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium [&::-webkit-details-marker]:hidden">
+              {f.q}
+              <span class="flex h-6 w-6 flex-none items-center justify-center border border-grey-line text-green-dark" aria-hidden="true">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <p class="pb-5 pr-10 text-grey-strong">{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</section>

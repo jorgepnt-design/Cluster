@@ -1,0 +1,27 @@
+---
+import Legal from "../layouts/Legal.astro";
+import { site } from "../config/site";
+---
+
+<Legal title="Impressum" description="Impressum von LOC-IN – Cluster Management as a Service.">
+  <h2>Angaben gemäß § 5 DDG</h2>
+  <p>
+    {site.person}<br />
+    LOC-IN – {site.claim}<br />
+    {site.address.street}<br />
+    {site.address.city}
+  </p>
+  <h2>Kontakt</h2>
+  <p>
+    Telefon: <a class="link" href={`tel:${site.phoneHref}`}>{site.phone}</a><br />
+    E-Mail: <a class="link" href={`mailto:${site.email}`}>{site.email}</a>
+  </p>
+  <h2>Umsatzsteuer-ID</h2>
+  <p>[PLATZHALTER: Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG]</p>
+  <h2>Verantwortlich für den Inhalt</h2>
+  <p>[PLATZHALTER: Name und Anschrift gemäß § 18 Abs. 2 MStV]</p>
+  <h2>Haftung für Inhalte und Links</h2>
+  <p>[PLATZHALTER]</p>
+  <h2>Urheberrecht</h2>
+  <p>[PLATZHALTER: Die Analysen und Texte dieser Website unterliegen dem Urheberrecht.]</p>
+</Legal>

@@ -1,0 +1,23 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <div class="container-page py-14 md:py-20">
+    <p class="rubric">Rechtliches</p>
+    <h1 class="mt-4 text-4xl">{title}</h1>
+    <p class="mt-6 max-w-2xl border-l-2 border-sand bg-sand-soft px-4 py-3 text-sm">
+      <strong class="font-medium">Platzhalter:</strong> Dieser Text ist eine Gliederung und muss vor Veröffentlichung
+      durch einen rechtlich geprüften Text ersetzt werden.
+    </p>
+    <div class="prose-legal mt-8">
+      <slot />
+    </div>
+  </div>
+</Base>
