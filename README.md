@@ -2,7 +2,7 @@
 
 Landingpage für **LOC-IN – Cluster Management as a Service**: Standortanalysen zu 39 Städten in Deutschland, Frankreich und Luxemburg. Kostenloser Teaser, kostenpflichtiger Standort-Snapshot, Clusterprofil und Mandate auf Anfrage.
 
-**Stack:** [Astro](https://astro.build) (statisch) und [Tailwind CSS 4](https://tailwindcss.com). Es gibt keinen Server, keine Datenbank, kein Tracking und keine Cookies.
+**Stack:** [Astro](https://astro.build) (statisch) und [Tailwind CSS 4](https://tailwindcss.com). Es gibt keinen Server, keine Datenbank, kein Tracking und keine Cookies. Die Schriften Lora und Inter (Google Fonts) werden über Fontsource lokal ausgeliefert, damit beim Seitenaufruf keine Daten an Google gehen.
 
 ---
 
@@ -150,7 +150,7 @@ Der Workflow `.github/workflows/deploy.yml` liegt bereits im Repository.
 ## Qualität
 
 - Lighthouse (lokal gemessen, Startseite und Stadtseite, mobil und Desktop): je 100 in Performance, Barrierefreiheit, Best Practices und SEO.
-- `npm run build` und `npm run check` laufen ohne Fehler und Warnungen.
+- `npm run build` und `npm run check` laufen ohne Fehler und Warnungen. Der Workflow `.github/workflows/ci.yml` prüft beides bei jedem Pull Request.
 - Mobile first, geprüft ab 360 px Breite ohne horizontales Scrollen.
 
 ## Offene Platzhalter

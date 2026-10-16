@@ -6,6 +6,8 @@ import Dialogs from "../components/Dialogs.astro";
 import { site } from "../config/site";
 import { shop } from "../config/shop";
 import { url } from "../lib/cities";
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import loraLatin from "@fontsource-variable/lora/files/lora-latin-wght-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -18,8 +20,6 @@ interface Props {
 const { title, description = site.description, ogType = "website", jsonLd, noindex = false } = Astro.props;
 const fullTitle = title.includes("LOC-IN") ? title : `${title} · LOC-IN`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const fontsHref =
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap";
 const ogImage = new URL(url("/og-image.png"), Astro.site).href;
 ---
 
@@ -47,11 +47,8 @@ const ogImage = new URL(url("/og-image.png"), Astro.site).href;
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href={fontsHref} />
-    <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
+    <link rel="preload" as="font" type="font/woff2" href={interLatin} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={loraLatin} crossorigin />
 
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     {shop.provider === "lemonsqueezy" && <script is:inline src="https://app.lemonsqueezy.com/js/lemon.js" defer />}
