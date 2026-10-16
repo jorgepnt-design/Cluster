@@ -8,55 +8,53 @@ import { site } from "../config/site";
 
 <section id="analysen" class="scroll-mt-16 py-16 md:py-24" aria-labelledby="analysen-title">
   <div class="container-page">
-    <SectionHead num="01" rubric="Analysen" title="39 Städte, ein Standard." id="analysen-title">
-      <p>
-        Jede Stadt ist nach demselben Raster analysiert. Den Teaser laden Sie kostenlos, den fünfseitigen Snapshot kaufen
-        Sie direkt. Datenstand {site.stand}.
-      </p>
-    </SectionHead>
-
-    <form class="mt-10 grid gap-4 border-y border-grey-line py-5 sm:grid-cols-2 lg:grid-cols-[2fr_1.4fr_1fr]" role="search" data-city-filter>
+    <div class="grid gap-10 lg:grid-cols-[1fr_20rem] lg:items-end xl:grid-cols-[1fr_23rem]">
       <div>
-        <label class="label" for="f-search">Suche</label>
-        <input class="field" id="f-search" type="search" name="q" placeholder="Stadt, Region oder Korridor" autocomplete="off" />
-      </div>
-      <div>
-        <label class="label" for="f-region">Region / Bundesland</label>
-        <select class="field" id="f-region" name="region">
-          <option value="">Alle Regionen</option>
-          {regions.map((r) => <option value={r}>{r}</option>)}
-        </select>
-      </div>
-      <div class="sm:col-span-2 lg:col-span-1">
-        <label class="label" for="f-sort">Sortierung</label>
-        <select class="field" id="f-sort" name="sort">
-          <option value="az">A–Z</option>
-          <option value="za">Z–A</option>
-        </select>
-      </div>
-    </form>
+        <SectionHead num="01" rubric="Analysen" title="39 Städte, ein Standard." id="analysen-title">
+          <p>
+            Jede Stadt ist nach demselben Raster analysiert. Den Teaser laden Sie kostenlos, den fünfseitigen Snapshot kaufen
+            Sie direkt. Datenstand {site.stand}.
+          </p>
+        </SectionHead>
 
-    <div class="mt-4 flex items-center justify-between gap-4 text-sm text-grey-strong">
-      <p role="status" aria-live="polite" data-count>{cities.length} Städte</p>
-      <button type="button" class="btn-ghost text-sm" data-reset hidden>Filter zurücksetzen</button>
-    </div>
+        <form class="mt-10 grid gap-4 border-y border-grey-line py-5 sm:grid-cols-2" role="search" data-city-filter>
+          <div class="sm:col-span-2">
+            <label class="label" for="f-search">Suche</label>
+            <input class="field" id="f-search" type="search" name="q" placeholder="Stadt, Region oder Korridor" autocomplete="off" />
+          </div>
+          <div>
+            <label class="label" for="f-region">Region / Bundesland</label>
+            <select class="field" id="f-region" name="region">
+              <option value="">Alle Regionen</option>
+              {regions.map((r) => <option value={r}>{r}</option>)}
+            </select>
+          </div>
+          <div>
+            <label class="label" for="f-sort">Sortierung</label>
+            <select class="field" id="f-sort" name="sort">
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+            </select>
+          </div>
+        </form>
 
-    <div class="mt-6 grid gap-8 lg:grid-cols-[18rem_1fr] xl:grid-cols-[21rem_1fr]">
-      <aside class="hidden lg:block" aria-label="Karte der Städte">
-        <div class="sticky top-24">
-          <CityMap />
+        <div class="mt-4 flex items-center justify-between gap-4 text-sm text-grey-strong">
+          <p role="status" aria-live="polite" data-count>{cities.length} Städte</p>
+          <button type="button" class="btn-ghost text-sm" data-reset hidden>Filter zurücksetzen</button>
         </div>
-      </aside>
-
-      <div>
-        <ul class="grid gap-5 sm:grid-cols-2 2xl:grid-cols-3" data-city-list>
-          {cities.map((city) => <CityCard city={city} />)}
-        </ul>
-        <p class="hidden border border-grey-line bg-grey-bg p-6 text-grey-strong" data-empty>
-          Keine Stadt gefunden. Bitte Suchbegriff oder Region ändern.
-        </p>
       </div>
+
+      <aside class="hidden lg:block" aria-label="Karte der Städte">
+        <CityMap />
+      </aside>
     </div>
+
+    <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-city-list>
+      {cities.map((city) => <CityCard city={city} />)}
+    </ul>
+    <p class="hidden border border-grey-line bg-grey-bg p-6 text-grey-strong" data-empty>
+      Keine Stadt gefunden. Bitte Suchbegriff oder Region ändern.
+    </p>
   </div>
 </section>
 

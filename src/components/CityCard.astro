@@ -18,7 +18,7 @@ const search = [city.name, city.region, city.corridor, city.subtitle].join(" ").
   data-region={city.region}
   data-search={search}
 >
-  <div class="flex flex-1 flex-col p-5 sm:p-6">
+  <div class="flex flex-1 flex-col p-5">
     <p class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-grey-strong">{city.region}</p>
     <h3 class="mt-2 text-2xl">
       <a href={url(`/staedte/${city.slug}`)} class="text-ink no-underline hover:text-green-dark hover:underline decoration-green-line underline-offset-4">
@@ -41,11 +41,11 @@ const search = [city.name, city.region, city.corridor, city.subtitle].join(" ").
     </dl>
   </div>
 
-  <div class="flex flex-col gap-2 border-t border-grey-line p-4 xs:flex-row xs:flex-wrap sm:px-6">
-    <TeaserButton slug={city.slug} size="sm" class="xs:flex-1" />
-    <BuyButton slug={city.slug} product="snapshot" size="sm" class="xs:flex-[1.4]" />
+  <div class="flex flex-wrap gap-2 border-t border-grey-line p-4 sm:px-5">
+    <TeaserButton slug={city.slug} size="sm" class="flex-auto whitespace-nowrap" />
+    <BuyButton slug={city.slug} product="snapshot" size="sm" class="flex-auto whitespace-nowrap" />
   </div>
-  <a href={url(`/staedte/${city.slug}`)} class="border-t border-grey-line px-4 py-3 text-sm text-green-dark no-underline hover:bg-grey-bg sm:px-6">
+  <a href={url(`/staedte/${city.slug}`)} class="border-t border-grey-line px-4 py-3 text-sm text-green-dark no-underline hover:bg-grey-bg sm:px-5">
     Details zu {city.name} <span aria-hidden="true">→</span>
   </a>
 </li>
