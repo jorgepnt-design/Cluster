@@ -1,0 +1,93 @@
+---
+import SectionHead from "./SectionHead.astro";
+import BuyButton from "./BuyButton.astro";
+import { tiers } from "../config/products";
+import { shop, bundleOffers, formatPrice, type BundleKey } from "../config/shop";
+import { getCity, url } from "../lib/cities";
+import { forms } from "../config/site";
+
+const bundles = (Object.keys(bundleOffers) as BundleKey[]).filter((k) => bundleOffers[k].enabled);
+---
+
+<section id="angebot" class="scroll-mt-16 border-t border-grey-line bg-grey-bg py-16 md:py-24" aria-labelledby="angebot-title">
+  <div class="container-page">
+    <SectionHead num="02" rubric="Angebot" title="Vier Stufen – vom Teaser bis zum Mandat." id="angebot-title">
+      <p>Alle Preise netto, {shop.vatNote} Sie erhalten eine Rechnung mit ausgewiesener Umsatzsteuer.</p>
+    </SectionHead>
+
+    <ol class="mt-12 grid gap-px border border-grey-line bg-grey-line sm:grid-cols-2 lg:grid-cols-4">
+      {
+        tiers.map((t, i) => (
+          <li class:list={["flex flex-col bg-white p-6", t.key === "snapshot" && "relative"]}>
+            {t.key === "snapshot" && <span class="absolute inset-x-0 top-0 h-[3px] bg-green" aria-hidden="true" />}
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-grey-strong">Stufe {i + 1}</p>
+            <h3 class="mt-2 text-xl">{t.name}</h3>
+            <p class="mt-1 text-sm text-grey-strong">{t.scope}</p>
+            <p class="kpi-value mt-5 text-3xl">
+              {typeof t.price === "number" ? formatPrice(t.price) : t.price}
+              {typeof t.price === "number" && <span class="ml-1 font-sans text-sm text-grey-strong">netto</span>}
+            </p>
+            <ul class="mt-5 flex-1 space-y-2 text-sm">
+              {t.points.map((p) => (
+                <li class="flex gap-2">
+                  <span class="mt-[0.6em] h-px w-3 flex-none bg-green" aria-hidden="true" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <p class="mt-5 border-t border-grey-line pt-4 text-xs text-grey-strong">{t.process}</p>
+            <div class="mt-4">
+              {t.key === "teaser" && (
+                <a href={url("/#analysen")} class="btn btn-secondary btn-sm w-full">
+                  Stadt wählen
+                </a>
+              )}
+              {t.key === "snapshot" && (
+                <a href={url("/#analysen")} class="btn btn-primary btn-sm w-full">
+                  Stadt wählen
+                </a>
+              )}
+              {t.key === "profil" && <BuyButton slug="" product="profil" variant="secondary" size="sm" class="w-full" />}
+              {t.key === "mandat" &&
+                (forms.bookingUrl ? (
+                  <a href={forms.bookingUrl} class="btn btn-secondary btn-sm w-full">
+                    Termin buchen
+                  </a>
+                ) : (
+                  <BuyButton slug="" product="mandat" variant="secondary" size="sm" class="w-full" label="Gespräch anfragen" />
+                ))}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    {
+      bundles.length > 0 && (
+        <div class="mt-12">
+          <h3 class="text-xl">Pakete</h3>
+          <ul class="mt-5 grid gap-5 md:grid-cols-2">
+            {bundles.map((key) => {
+              const b = bundleOffers[key];
+              return (
+                <li class="flex flex-col gap-4 border border-grey-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p class="font-serif text-lg">{b.title}</p>
+                    <p class="mt-1 text-sm text-grey-strong">{b.description}</p>
+                    {b.cities.length > 0 && (
+                      <p class="mt-2 text-sm">{b.cities.map((s) => getCity(s)?.name ?? s).join(" · ")}</p>
+                    )}
+                    <p class="mt-3 text-sm font-medium">
+                      {b.priceNet ? `${formatPrice(b.priceNet)} netto` : "Preis auf Anfrage"}
+                    </p>
+                  </div>
+                  <BuyButton slug={key} product="bundle" variant="secondary" size="sm" class="flex-none" />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+</section>

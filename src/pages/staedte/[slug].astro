@@ -1,0 +1,234 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import Base from "../../layouts/Base.astro";
+import BuyButton from "../../components/BuyButton.astro";
+import TeaserButton from "../../components/TeaserButton.astro";
+import { cities, url, type City } from "../../lib/cities";
+import { shop, formatPrice } from "../../config/shop";
+import { snapshotToc } from "../../config/products";
+import { site } from "../../config/site";
+
+export function getStaticPaths() {
+  return cities.map((city, i) => ({
+    params: { slug: city.slug },
+    props: {
+      city,
+      prev: cities[(i - 1 + cities.length) % cities.length],
+      next: cities[(i + 1) % cities.length],
+    },
+  }));
+}
+
+interface Props {
+  city: City;
+  prev: City;
+  next: City;
+}
+
+const { city, prev, next } = Astro.props;
+const sameRegion = cities.filter((c) => c.region === city.region && c.slug !== city.slug);
+
+// Vorschaubild der ersten Teaser-Seite: public/previews/<slug>.png (optional)
+const previewFile = `previews/${city.slug}.png`;
+const hasPreview = fs.existsSync(path.join(process.cwd(), "public", previewFile));
+
+const pageUrl = new URL(url(`/staedte/${city.slug}`), Astro.site).href;
+const [d, m, y] = city.stand.split(".");
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: `Standort-Snapshot ${city.name}`,
+  description: `${city.subtitle}. Fünfseitige Standortanalyse mit belegten Fakten, Clusterlandkarte, FR/IT-Benchmarks, Korridor sowie Budget- und Vergaberahmen. Datenstand ${city.stand}.`,
+  sku: `snapshot-${city.slug}`,
+  category: "Standortanalyse (PDF)",
+  url: pageUrl,
+  releaseDate: `${y}-${m}-${d}`,
+  brand: { "@type": "Brand", name: "LOC-IN" },
+  offers: {
+    "@type": "Offer",
+    url: pageUrl,
+    price: shop.pricesNet.snapshot.toFixed(2),
+    priceCurrency: shop.currency,
+    availability: "https://schema.org/InStock",
+    eligibleCustomerType: "https://schema.org/Business",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: shop.pricesNet.snapshot.toFixed(2),
+      priceCurrency: shop.currency,
+      valueAddedTaxIncluded: false,
+    },
+    seller: { "@type": "Organization", name: "LOC-IN" },
+  },
+};
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Analysen", item: new URL(url("/"), Astro.site).href },
+    { "@type": "ListItem", position: 2, name: city.name, item: pageUrl },
+  ],
+};
+---
+
+<Base
+  title={`Standortanalyse ${city.name} – ${city.region}`}
+  description={`${city.name}: ${city.subtitle}. Standort-Snapshot mit Quellen, Clusterlandkarte und FR/IT-Benchmarks. Teaser kostenlos, Snapshot ${formatPrice(shop.pricesNet.snapshot)} netto.`}
+  ogType="product"
+  jsonLd={[jsonLd, breadcrumb]}
+>
+  <div class="border-b border-grey-line bg-grey-bg">
+    <nav aria-label="Brotkrumen" class="container-page py-3 text-sm">
+      <ol class="flex flex-wrap gap-2 text-grey-strong">
+        <li><a class="link" href={url("/#analysen")}>Analysen</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a class="link" href={url(`/?region=${encodeURIComponent(city.region)}#analysen`)}>{city.region}</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-ink">{city.name}</li>
+      </ol>
+    </nav>
+  </div>
+
+  <article class="container-page grid gap-12 py-12 md:py-16 lg:grid-cols-[1fr_22rem] lg:gap-16">
+    <div class="min-w-0">
+      <header>
+        <p class="rubric">Standortanalyse · {city.region}</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl">{city.name}</h1>
+        <p class="mt-4 text-lg text-grey-strong">{city.subtitle}</p>
+      </header>
+
+      <section class="mt-10 border-l-2 border-green pl-5" aria-label="Kernaussage">
+        <p class="font-serif text-2xl italic leading-snug sm:text-[1.7rem]">{city.teaser_headline}</p>
+      </section>
+
+      <p class="mt-8 max-w-3xl text-[1.05rem] leading-relaxed">{city.teaser_intro}</p>
+
+      <section class="mt-12" aria-labelledby="kpi-title">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="kpi-title" class="text-2xl">Kennzahlen</h2>
+          <p class="text-sm text-grey-strong">Datenstand der Analyse: {city.stand}</p>
+        </div>
+        <dl class="mt-5 grid gap-px border border-grey-line bg-grey-line sm:grid-cols-2">
+          {
+            city.kpis.map((k) => (
+              <div class="flex flex-col bg-white p-5">
+                <dt class="order-2 mt-2 text-sm leading-snug">{k.label}</dt>
+                <dd class="kpi-value order-1 text-3xl">{k.value}</dd>
+                <dd class="order-3 mt-2 text-xs text-grey-strong">Stand: {k.source_note}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        <p class="mt-3 text-xs text-grey-strong">Quellenangaben zu allen Kennzahlen im Teaser und im Snapshot.</p>
+      </section>
+
+      <section class="mt-12 grid gap-px border border-grey-line bg-grey-line md:grid-cols-2" aria-label="Korridor und Inhalt">
+        <div class="bg-grey-bg p-6">
+          <h2 class="text-xl">Korridor</h2>
+          <p class="mt-3">{city.corridor}</p>
+          <p class="mt-3 text-sm text-grey-strong">
+            Der Raum, in dem der Standort wirtschaftlich und institutionell vernetzt ist – grenzüberschreitend, wo es eine
+            Grenzlage gibt.
+          </p>
+        </div>
+        <div class="bg-white p-6">
+          <h2 class="text-xl">Inhalt des Snapshots</h2>
+          <ol class="mt-3 space-y-2 text-[0.95rem]">
+            {
+              snapshotToc.map((item, i) => (
+                <li class="flex gap-3">
+                  <span class="kpi-value w-5 flex-none text-green">{i + 1}</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <section class="mt-12" aria-labelledby="preview-title">
+        <h2 id="preview-title" class="text-2xl">Vorschau Teaser</h2>
+        {
+          hasPreview ? (
+            <img
+              src={url(`/${previewFile}`)}
+              alt={`Erste Seite des Teasers ${city.name}`}
+              width="595"
+              height="842"
+              loading="lazy"
+              decoding="async"
+              class="mt-5 h-auto w-full max-w-sm border border-grey-line"
+            />
+          ) : (
+            <div class="mt-5 flex aspect-[1/1.414] w-full max-w-xs flex-col justify-between border border-dashed border-grey bg-grey-bg p-6">
+              <div>
+                <p class="rubric">Teaser · {city.stand}</p>
+                <p class="mt-3 font-serif text-xl">{city.name}</p>
+                <div class="mt-4 space-y-2" aria-hidden="true">
+                  <div class="h-1.5 w-full bg-grey-line" />
+                  <div class="h-1.5 w-5/6 bg-grey-line" />
+                  <div class="h-1.5 w-4/6 bg-grey-line" />
+                </div>
+              </div>
+              <p class="text-xs text-grey-strong">Vorschaubild folgt</p>
+            </div>
+          )
+        }
+      </section>
+
+      {
+        sameRegion.length > 0 && (
+          <section class="mt-14 border-t border-grey-line pt-8" aria-labelledby="region-title">
+            <h2 id="region-title" class="text-xl">
+              Weitere Analysen in {city.region}
+            </h2>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {sameRegion.map((c) => (
+                <li>
+                  <a href={url(`/staedte/${c.slug}`)} class="btn btn-secondary btn-sm">
+                    {c.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <nav class="mt-10 grid grid-cols-2 gap-4 border-t border-grey-line pt-6 text-sm" aria-label="Weitere Städte">
+        <a href={url(`/staedte/${prev.slug}`)} class="link">← {prev.name}</a>
+        <a href={url(`/staedte/${next.slug}`)} class="link text-right">{next.name} →</a>
+      </nav>
+    </div>
+
+    <aside aria-label="Bestellen">
+      <div class="border border-grey-line lg:sticky lg:top-24">
+        <div class="border-b border-grey-line p-6">
+          <p class="rubric">Teaser</p>
+          <p class="mt-3 font-serif text-lg">Standort-Teaser {city.name}</p>
+          <p class="mt-1 text-sm text-grey-strong">2 Seiten PDF · kostenlos</p>
+          <TeaserButton slug={city.slug} label="Teaser kostenlos laden" class="mt-4 w-full" />
+        </div>
+        <div class="border-b border-grey-line bg-green-soft p-6">
+          <p class="rubric">Snapshot</p>
+          <p class="mt-3 font-serif text-lg">Standort-Snapshot {city.name}</p>
+          <p class="mt-1 text-sm text-grey-strong">5 Seiten PDF · Datenstand {city.stand}</p>
+          <p class="kpi-value mt-4 text-3xl">
+            {formatPrice(shop.pricesNet.snapshot)} <span class="font-sans text-sm text-grey-strong">netto</span>
+          </p>
+          <p class="text-xs text-grey-strong">{shop.vatNote}</p>
+          <BuyButton slug={city.slug} product="snapshot" label="Snapshot kaufen" class="mt-4 w-full" />
+        </div>
+        <div class="p-6">
+          <p class="rubric">Vertiefung</p>
+          <p class="mt-3 text-sm">
+            <span class="font-medium">Clusterprofil</span> (8–12 Seiten, {formatPrice(shop.pricesNet.profil)} netto) – individuell
+            erstellt.
+          </p>
+          <BuyButton slug={city.slug} product="profil" variant="secondary" size="sm" class="mt-3 w-full" />
+          <p class="mt-5 text-xs text-grey-strong">{site.b2bNote}</p>
+        </div>
+      </div>
+    </aside>
+  </article>
+</Base>

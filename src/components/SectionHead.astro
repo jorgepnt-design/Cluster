@@ -1,0 +1,15 @@
+---
+interface Props {
+  num?: string;
+  rubric: string;
+  title: string;
+  id?: string;
+}
+const { num, rubric, title, id } = Astro.props;
+---
+
+<div class="max-w-3xl">
+  <p class="rubric">{num && <span class="rubric-num">{num}</span>}{rubric}</p>
+  <h2 id={id} class="mt-4 text-3xl sm:text-4xl">{title}</h2>
+  {Astro.slots.has("default") && <div class="mt-4 text-lg text-grey-strong"><slot /></div>}
+</div>

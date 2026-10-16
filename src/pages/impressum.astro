@@ -1,0 +1,87 @@
+---
+import Legal from "../layouts/Legal.astro";
+import { site } from "../config/site";
+import { legal } from "../config/legal";
+import { url } from "../lib/cities";
+---
+
+<Legal title="Impressum" description="Impressum von LOC-IN – Cluster Management as a Service, Darmstadt.">
+  <h2>Angaben gemäß § 5 DDG</h2>
+  <p>
+    {site.person}<br />
+    LOC-IN – {site.claim}<br />
+    {site.address.street}<br />
+    {site.address.city}<br />
+    Deutschland
+  </p>
+
+  <h2>Kontakt</h2>
+  <p>
+    Telefon: <a class="link" href={`tel:${site.phoneHref}`}>{site.phone}</a><br />
+    E-Mail: <a class="link" href={`mailto:${site.email}`}>{site.email}</a><br />
+    Web: <a class="link" href={site.web}>www.loc-in.com</a>
+  </p>
+
+  {
+    legal.vatId !== "keine" && (
+      <>
+        <h2>Umsatzsteuer-Identifikationsnummer</h2>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: {legal.vatId ?? "[bitte ergänzen]"}</p>
+      </>
+    )
+  }
+
+  {
+    legal.brokerPermitAuthority !== "keine" && (
+      <>
+        <h2>Erlaubnis und Aufsichtsbehörde</h2>
+        <p>
+          Erlaubnis gemäß § 34c GewO
+          <br />
+          Zuständige Aufsichtsbehörde: {legal.brokerPermitAuthority ?? "[bitte ergänzen]"}
+        </p>
+      </>
+    )
+  }
+
+  <h2>Redaktionell verantwortlich gemäß § 18 Abs. 2 MStV</h2>
+  <p>
+    {site.person}<br />
+    {site.address.street}, {site.address.city}
+  </p>
+
+  <h2>Verbraucherstreitbeilegung</h2>
+  <p>
+    Das Angebot richtet sich ausschließlich an Unternehmen und öffentliche Auftraggeber. Wir sind nicht bereit und nicht
+    verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+  </p>
+
+  <h2>Haftung für Inhalte</h2>
+  <p>
+    Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität können
+    wir dennoch keine Gewähr übernehmen. Die Analysen geben den jeweils genannten Datenstand wieder; Aussagen sind als
+    FAKT, HYPOTHESE oder NICHT GEPRÜFT gekennzeichnet. Sie stellen keine Rechts-, Steuer- oder Anlageberatung dar.
+  </p>
+  <p>
+    Als Diensteanbieter sind wir für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Wir sind nicht
+    verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen. Verpflichtungen zur Entfernung oder
+    Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt. Sobald uns eine konkrete
+    Rechtsverletzung bekannt wird, entfernen wir die betreffenden Inhalte umgehend.
+  </p>
+
+  <h2>Haftung für Links</h2>
+  <p>
+    Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese
+    fremden Inhalte ist stets der jeweilige Anbieter verantwortlich. Zum Zeitpunkt der Verlinkung waren keine
+    Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.
+  </p>
+
+  <h2>Urheberrecht</h2>
+  <p>
+    Texte, Grafiken und Analysen auf dieser Website sowie die angebotenen PDF-Dokumente unterliegen dem deutschen
+    Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des
+    Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung. Für erworbene Analysen gelten die Nutzungsrechte nach
+    unseren <a class="link" href={url("/agb")}>AGB</a>. Die in den Analysen genannten Daten Dritter sind mit Quelle
+    gekennzeichnet.
+  </p>
+</Legal>

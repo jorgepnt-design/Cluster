@@ -1,0 +1,68 @@
+---
+/**
+ * Abstrakte Netzwerkgrafik: Städte als Knoten über einer stilisierten Rhein-Region.
+ * Rein dekorativ (aria-hidden).
+ */
+import { coords, rivers, projector, pathFrom } from "../lib/geo";
+
+const box = { latMin: 47.6, latMax: 51.9, lonMin: 5.75, lonMax: 10.3 };
+const { project, width, height } = projector(box, 520);
+
+const nodes = Object.entries(coords)
+  .filter(([, [lat, lon]]) => lat >= box.latMin && lat <= box.latMax && lon >= box.lonMin && lon <= box.lonMax)
+  .map(([slug, c]) => ({ slug, p: project(c) }));
+
+// Jede Stadt mit ihren zwei nächsten Nachbarn verbinden
+const edges = new Set<string>();
+for (const a of nodes) {
+  nodes
+    .filter((b) => b !== a)
+    .map((b) => ({ b, d: Math.hypot(a.p[0] - b.p[0], a.p[1] - b.p[1]) }))
+    .sort((x, y) => x.d - y.d)
+    .slice(0, 2)
+    .forEach(({ b }) => edges.add([a.slug, b.slug].sort().join("|")));
+}
+const pos = Object.fromEntries(nodes.map((n) => [n.slug, n.p]));
+const lines = [...edges].map((e) => e.split("|").map((s) => pos[s]) as [number, number][]);
+
+const accent = new Set(["luxemburg", "metz", "saarbruecken", "trier", "strassburg", "kehl"]);
+const pad = 12;
+---
+
+<svg
+  viewBox={`${-pad} ${-pad} ${width + pad * 2} ${height + pad * 2}`}
+  class="h-auto w-full"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26 0H0V26" fill="none" stroke="var(--grey-line)" stroke-width="0.5"></path>
+    </pattern>
+  </defs>
+  <rect x={-pad} y={-pad} width={width + pad * 2} height={height + pad * 2} fill="url(#grid)" opacity="0.6"></rect>
+
+  {
+    Object.entries(rivers).map(([name, pts]) => (
+      <path
+        d={pathFrom(pts.map(project))}
+        fill="none"
+        stroke="var(--green-line)"
+        stroke-width={name === "rhein" ? 5 : 3}
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    ))
+  }
+
+  {lines.map(([a, b]) => <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke="var(--green)" stroke-width="0.8" opacity="0.55" />)}
+
+  {
+    nodes.map((n) => (
+      <g>
+        <circle cx={n.p[0]} cy={n.p[1]} r="7" fill="#fff" stroke={accent.has(n.slug) ? "var(--sand)" : "var(--green)"} stroke-width="1" />
+        <circle cx={n.p[0]} cy={n.p[1]} r="3" fill={accent.has(n.slug) ? "var(--sand)" : "var(--green-dark)"} />
+      </g>
+    ))
+  }
+</svg>

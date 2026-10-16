@@ -1,0 +1,84 @@
+---
+/**
+ * Kauf-/Anfrage-Button. Liest ausschließlich aus src/config/shop.ts.
+ * - snapshot / bundle: Checkout-Link des Anbieters oder (provider "none") Bestell-Fenster per E-Mail
+ * - profil / mandat: führt zum Anfrageformular mit vorausgewählter Stadt
+ */
+import { shop, bundleOffers, checkoutUrl, formatPrice, type BundleKey } from "../config/shop";
+import { getCity, url } from "../lib/cities";
+
+interface Props {
+  slug: string;
+  product: "snapshot" | "profil" | "mandat" | "bundle";
+  label?: string;
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md";
+  class?: string;
+}
+
+const { slug, product, label, variant = "primary", size = "md", class: extra = "" } = Astro.props;
+const cls = ["btn", variant === "primary" ? "btn-primary" : "btn-secondary", size === "sm" ? "btn-sm" : "", extra]
+  .filter(Boolean)
+  .join(" ");
+
+const city = getCity(slug);
+let title = "";
+let price: number | null = null;
+let href: string | null = null;
+let text = label;
+
+if (product === "snapshot") {
+  title = `Standort-Snapshot ${city?.name ?? slug}`;
+  price = shop.pricesNet.snapshot;
+  href = checkoutUrl(slug, "city");
+  text ??= `Snapshot kaufen – ${formatPrice(price)}`;
+} else if (product === "bundle") {
+  const offer = bundleOffers[slug as BundleKey];
+  title = offer.title;
+  price = offer.priceNet;
+  href = checkoutUrl(slug, "bundle");
+  text ??= price ? `Paket kaufen – ${formatPrice(price)}` : "Paket anfragen";
+} else {
+  const anliegen = product === "profil" ? "profil" : "mandat";
+  href = url(`/?anliegen=${anliegen}${city ? `&stadt=${encodeURIComponent(city.slug)}` : ""}#kontakt`);
+  text ??= product === "profil" ? "Clusterprofil anfragen" : "Mandat anfragen";
+}
+
+const priceText = price ? `${formatPrice(price)} netto, ${shop.vatNote}` : "Preis auf Anfrage";
+const body = [
+  `Guten Tag,`,
+  ``,
+  `hiermit bestelle ich: ${title} (${priceText}).`,
+  ``,
+  `Organisation:`,
+  `Ansprechperson:`,
+  `Rechnungsanschrift:`,
+  `USt-IdNr. (falls vorhanden):`,
+  `Bestellnummer / Referenz (optional):`,
+  ``,
+  `Wir bestellen als Unternehmen bzw. öffentlicher Auftraggeber (kein Verbraucher im Sinne von § 13 BGB). Es gelten die AGB von LOC-IN.`,
+  ``,
+  `Mit freundlichen Grüßen`,
+].join("\n");
+const mailto = `mailto:${shop.orderEmail}?subject=${encodeURIComponent(title.replace("Standort-Snapshot", "Snapshot"))}&body=${encodeURIComponent(body)}`;
+---
+
+{
+  href ? (
+    <a href={href} class={cls} data-product={product}>
+      {text}
+    </a>
+  ) : (
+    <button
+      type="button"
+      class={cls}
+      data-buy-dialog
+      data-title={title}
+      data-price={priceText}
+      data-mailto={mailto}
+      aria-haspopup="dialog"
+    >
+      {text}
+    </button>
+  )
+}

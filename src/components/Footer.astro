@@ -1,0 +1,52 @@
+---
+import { site } from "../config/site";
+import { url } from "../lib/cities";
+
+const legal = [
+  { href: url("/impressum"), label: "Impressum" },
+  { href: url("/datenschutz"), label: "Datenschutz" },
+  { href: url("/agb"), label: "AGB" },
+  { href: url("/widerruf"), label: "Widerrufsbelehrung" },
+];
+---
+
+<footer class="mt-auto border-t border-grey-line bg-grey-bg">
+  <div class="container-page grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <p class="font-serif text-xl font-semibold tracking-wide">LOC-IN</p>
+      <p class="mt-1 text-sm text-grey-strong">{site.claim}</p>
+      <p class="mt-4 max-w-sm text-sm text-grey-strong">{site.b2bNote}</p>
+    </div>
+
+    <address class="not-italic text-sm leading-relaxed">
+      <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-grey-strong">Kontakt</p>
+      {site.person}<br />
+      {site.address.street}<br />
+      {site.address.city}<br />
+      <a class="link" href={`mailto:${site.email}`}>{site.email}</a><br />
+      <a class="link" href={`tel:${site.phoneHref}`}>{site.phone}</a><br />
+      <a class="link" href={site.web}>www.loc-in.com</a>
+    </address>
+
+    <nav aria-label="Rechtliches" class="text-sm">
+      <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-grey-strong">Rechtliches</p>
+      <ul class="space-y-1.5">
+        {
+          legal.map((l) => (
+            <li>
+              <a class="link" href={l.href}>
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t border-grey-line">
+    <div class="container-page flex flex-col gap-1 py-5 text-xs text-grey-strong sm:flex-row sm:justify-between">
+      <p>© 2026 LOC-IN</p>
+      <p>Datenstand der Analysen: {site.stand} · Kein Tracking, keine Cookies</p>
+    </div>
+  </div>
+</footer>

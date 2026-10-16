@@ -1,0 +1,128 @@
+---
+import SectionHead from "./SectionHead.astro";
+import { site, forms } from "../config/site";
+import { cities, url } from "../lib/cities";
+
+const endpoint = forms.contactEndpoint;
+---
+
+<section id="kontakt" class="scroll-mt-16 py-16 md:py-24" aria-labelledby="kontakt-title">
+  <div class="container-page grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+    <div>
+      <SectionHead num="07" rubric="Kontakt" title="Sprechen wir über Ihren Standort." id="kontakt-title">
+        <p>Für Clusterprofile, Mandate und Fragen zu den Analysen.</p>
+      </SectionHead>
+      <address class="mt-8 space-y-1 not-italic">
+        <p class="font-serif text-lg">{site.person}</p>
+        <p class="text-grey-strong">LOC-IN – {site.claim}</p>
+        <p class="pt-2">{site.address.street}<br />{site.address.city}</p>
+        <p class="pt-2"><a class="link" href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><a class="link" href={`tel:${site.phoneHref}`}>{site.phone}</a></p>
+        <p><a class="link" href={site.web}>www.loc-in.com</a></p>
+      </address>
+      {forms.bookingUrl && <a href={forms.bookingUrl} class="btn btn-secondary mt-6">Termin buchen</a>}
+    </div>
+
+    <form
+      class="grid gap-5 border border-grey-line p-5 sm:grid-cols-2 sm:p-8"
+      data-contact-form
+      data-mode={endpoint ? "endpoint" : "mailto"}
+      action={endpoint ?? `mailto:${site.email}`}
+      method="post"
+      enctype={endpoint ? undefined : "text/plain"}
+    >
+      <div>
+        <label class="label" for="c-name">Name *</label>
+        <input class="field" id="c-name" name="name" required autocomplete="name" />
+      </div>
+      <div>
+        <label class="label" for="c-org">Organisation *</label>
+        <input class="field" id="c-org" name="organisation" required autocomplete="organization" />
+      </div>
+      <div>
+        <label class="label" for="c-email">E-Mail *</label>
+        <input class="field" id="c-email" name="email" type="email" required autocomplete="email" />
+      </div>
+      <div>
+        <label class="label" for="c-city">Stadt</label>
+        <select class="field" id="c-city" name="stadt">
+          <option value="">Keine Auswahl</option>
+          {cities.map((c) => <option value={c.slug}>{c.name}</option>)}
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="label" for="c-topic">Anliegen</label>
+        <select class="field" id="c-topic" name="anliegen">
+          <option value="frage">Frage zu den Analysen</option>
+          <option value="snapshot">Bestellung Standort-Snapshot</option>
+          <option value="profil">Anfrage Clusterprofil</option>
+          <option value="mandat">Individuelles Mandat</option>
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="label" for="c-msg">Nachricht *</label>
+        <textarea class="field min-h-36" id="c-msg" name="nachricht" rows="5" required></textarea>
+      </div>
+      <p class="text-xs text-grey-strong sm:col-span-2">
+        Ihre Angaben verwenden wir ausschließlich zur Bearbeitung Ihrer Anfrage. Mehr in der
+        <a class="link" href={url("/datenschutz")}>Datenschutzerklärung</a>. {site.b2bNote}
+      </p>
+      <div class="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center">
+        <button class="btn btn-primary" type="submit">Nachricht senden</button>
+        <p class="text-sm text-grey-strong" role="status" aria-live="polite" data-status>
+          {!endpoint && "Öffnet Ihr E-Mail-Programm mit vorausgefüllter Nachricht."}
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+  if (form) {
+    // Vorauswahl über die URL, z. B. /?anliegen=profil&stadt=aachen#kontakt
+    const params = new URLSearchParams(location.search);
+    const set = (name: string, value: string | null) => {
+      const el = form.elements.namedItem(name) as HTMLSelectElement | null;
+      if (el && value && [...el.options].some((o) => o.value === value)) el.value = value;
+    };
+    set("stadt", params.get("stadt"));
+    set("anliegen", params.get("anliegen"));
+
+    const status = form.querySelector("[data-status]")!;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const city = form.querySelector<HTMLSelectElement>("#c-city")!;
+      const topic = form.querySelector<HTMLSelectElement>("#c-topic")!;
+      const cityName = city.value ? city.selectedOptions[0].text : "";
+
+      if (form.dataset.mode === "mailto") {
+        const subject = `${topic.selectedOptions[0].text}${cityName ? ` – ${cityName}` : ""}`;
+        const body = [
+          `Name: ${data.get("name")}`,
+          `Organisation: ${data.get("organisation")}`,
+          `E-Mail: ${data.get("email")}`,
+          cityName && `Stadt: ${cityName}`,
+          "",
+          String(data.get("nachricht") ?? ""),
+        ]
+          .filter((l) => l !== "")
+          .join("\n");
+        location.href = `${form.action.split("?")[0]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        return;
+      }
+
+      status.textContent = "Wird gesendet …";
+      try {
+        const res = await fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        status.textContent = "Vielen Dank. Ihre Nachricht ist angekommen.";
+      } catch {
+        status.textContent = "Senden fehlgeschlagen. Bitte schreiben Sie direkt an np@loc-in.com.";
+      }
+    });
+  }
+</script>

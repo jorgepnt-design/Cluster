@@ -1,0 +1,40 @@
+---
+import SectionHead from "./SectionHead.astro";
+
+const groups = [
+  {
+    title: "Wirtschaftsförderungen und Kommunen",
+    text: "Eigenen Standort im Vergleich sehen, Partner jenseits der Grenze identifizieren, Förder- und Vergabewege kennen.",
+    icon: "M4 28V12l12-8 12 8v16M10 28V18h12v10",
+  },
+  {
+    title: "Projektentwickler und Investoren",
+    text: "Belegte Standortfakten und Clusterstrukturen als Grundlage für Ansiedlungs-, Flächen- und Investitionsentscheidungen.",
+    icon: "M4 28h24M7 28V14h6v14M16 28V8h6v20M25 28V18",
+  },
+  {
+    title: "Clusterinitiativen und Netzwerke",
+    text: "Benchmarks mit französischen und italienischen Clustern und Hinweise auf Kooperationspotenziale im Korridor.",
+    icon: "M8 10a3 3 0 1 0 0-.01M24 10a3 3 0 1 0 0-.01M16 24a3 3 0 1 0 0-.01M10.5 11.5l4 10M21.5 11.5l-4 10M11 10h10",
+  },
+];
+---
+
+<section id="fuer-wen" class="scroll-mt-16 border-t border-grey-line bg-grey-bg py-16 md:py-24" aria-labelledby="fuer-wen-title">
+  <div class="container-page">
+    <SectionHead num="04" rubric="Für wen" title="Für alle, die über Standorte entscheiden." id="fuer-wen-title" />
+    <ul class="mt-12 grid gap-5 md:grid-cols-3">
+      {
+        groups.map((g) => (
+          <li class="border border-grey-line bg-white p-6">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--green)" stroke-width="1.4" aria-hidden="true">
+              <path d={g.icon} />
+            </svg>
+            <h3 class="mt-5 text-xl">{g.title}</h3>
+            <p class="mt-3 text-[0.95rem] text-grey-strong">{g.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

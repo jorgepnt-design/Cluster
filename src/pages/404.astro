@@ -1,0 +1,13 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/cities";
+---
+
+<Base title="Seite nicht gefunden" noindex>
+  <div class="container-page py-24">
+    <p class="rubric">Fehler 404</p>
+    <h1 class="mt-4 text-4xl">Diese Seite gibt es nicht.</h1>
+    <p class="mt-4 text-grey-strong">Vielleicht finden Sie die gesuchte Stadt im Katalog.</p>
+    <a class="btn btn-primary mt-8" href={url("/#analysen")}>Zu den Analysen</a>
+  </div>
+</Base>

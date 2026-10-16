@@ -1,0 +1,170 @@
+---
+import Legal from "../layouts/Legal.astro";
+import { site } from "../config/site";
+import { shop, formatPrice } from "../config/shop";
+import { url } from "../lib/cities";
+---
+
+<Legal title="Allgemeine Geschäftsbedingungen" description="AGB für den Erwerb von Standortanalysen und Leistungen bei LOC-IN (nur für Unternehmen und öffentliche Auftraggeber).">
+  <h2>§ 1 Geltungsbereich, Kundenkreis</h2>
+  <p>
+    (1) Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge über Standortanalysen und damit verbundene
+    Leistungen zwischen {site.person}, LOC-IN – {site.claim}, {site.address.street}, {site.address.city} (nachfolgend
+    „LOC-IN“), und ihren Kunden.
+  </p>
+  <p>
+    (2) Das Angebot richtet sich ausschließlich an Unternehmer im Sinne von § 14 BGB, juristische Personen des
+    öffentlichen Rechts und öffentlich-rechtliche Sondervermögen. Verträge mit Verbrauchern im Sinne von § 13 BGB
+    werden nicht geschlossen. Mit der Bestellung bestätigt der Kunde, dass er in Ausübung seiner gewerblichen oder
+    selbständigen beruflichen Tätigkeit bzw. als öffentlicher Auftraggeber handelt. LOC-IN kann einen Nachweis
+    verlangen, etwa durch Angabe der Umsatzsteuer-Identifikationsnummer oder eines Handelsregistereintrags.
+  </p>
+  <p>
+    (3) Abweichende, entgegenstehende oder ergänzende Bedingungen des Kunden werden nur Vertragsbestandteil, wenn LOC-IN
+    ihrer Geltung ausdrücklich in Textform zustimmt. Individuelle Vereinbarungen, insbesondere für Clusterprofile und
+    Mandate, haben Vorrang vor diesen AGB.
+  </p>
+
+  <h2>§ 2 Leistungen</h2>
+  <p>(1) LOC-IN bietet insbesondere folgende Leistungen an:</p>
+  <ul>
+    <li>Standort-Teaser: zweiseitige Kurzanalyse als PDF, kostenlos;</li>
+    <li>
+      Standort-Snapshot: fünfseitige Standortanalyse einer Stadt als PDF zum Preis von {formatPrice(shop.pricesNet.snapshot)} netto;
+    </li>
+    <li>
+      Clusterprofil: individuell erstellte Analyse im Umfang von 8 bis 12 Seiten ab {formatPrice(shop.pricesNet.profil)} netto;
+    </li>
+    <li>individuelle Mandate nach gesonderter Vereinbarung.</li>
+  </ul>
+  <p>
+    (2) Teaser und Snapshots sind standardisierte digitale Inhalte. Sie geben den jeweils im Dokument genannten
+    Datenstand wieder. Eine Aktualisierung nach Lieferung ist nicht geschuldet.
+  </p>
+  <p>
+    (3) Die Analysen beruhen auf öffentlich zugänglichen Quellen, die im Dokument angegeben sind. Jede Aussage ist als
+    FAKT (durch eine genannte Quelle belegt), HYPOTHESE (begründete Einschätzung) oder NICHT GEPRÜFT (nicht
+    verifizierter Punkt) gekennzeichnet. Die Analysen dienen als Entscheidungsgrundlage und ersetzen keine Rechts-,
+    Steuer-, Finanz- oder Anlageberatung. Für Hypothesen und künftige Entwicklungen übernimmt LOC-IN keine Gewähr.
+  </p>
+
+  <h2>§ 3 Vertragsschluss</h2>
+  <p>
+    (1) Die Darstellung der Leistungen auf der Website ist kein verbindliches Angebot, sondern eine Aufforderung zur
+    Abgabe einer Bestellung.
+  </p>
+  <p>
+    (2) Bestellt der Kunde per E-Mail, gibt er damit ein verbindliches Angebot ab. Der Vertrag kommt zustande, wenn LOC-IN
+    die Bestellung in Textform bestätigt oder die Leistung bereitstellt.
+  </p>
+  <p>
+    (3) Erfolgt der Kauf über einen auf der Website eingebundenen Zahlungsanbieter, kommt der Vertrag mit Abschluss des
+    Bezahlvorgangs zustande. Tritt der Zahlungsanbieter als Verkäufer auf (Merchant of Record, z. B. Lemon Squeezy,
+    Paddle oder Digistore24), kommt der Kaufvertrag mit diesem zustande und es gelten ergänzend dessen Bedingungen. Die
+    Regelungen dieser AGB zu Inhalt, Nutzungsrechten und Haftung gelten im Verhältnis zu LOC-IN entsprechend.
+  </p>
+  <p>
+    (4) Für Clusterprofile und Mandate erstellt LOC-IN nach Anfrage ein individuelles Angebot. Der Vertrag kommt mit
+    Annahme dieses Angebots durch den Kunden in Textform zustande.
+  </p>
+
+  <h2>§ 4 Preise und Zahlung</h2>
+  <p>
+    (1) Alle Preise sind Nettopreise {shop.vatNote} Bei Leistungen an Unternehmer mit Sitz in einem anderen
+    EU-Mitgliedstaat kann die Steuerschuld auf den Leistungsempfänger übergehen (Reverse-Charge-Verfahren), sofern der
+    Kunde eine gültige Umsatzsteuer-Identifikationsnummer angibt.
+  </p>
+  <p>
+    (2) Bei Bestellung per E-Mail erhält der Kunde eine Rechnung. Der Rechnungsbetrag ist innerhalb von 14 Tagen nach
+    Rechnungsdatum ohne Abzug zu zahlen. Bei Zahlung über einen Zahlungsanbieter gelten dessen Zahlungsarten und
+    -bedingungen.
+  </p>
+  <p>
+    (3) Für Clusterprofile und Mandate gelten die im individuellen Angebot vereinbarten Preise und Zahlungsbedingungen.
+  </p>
+
+  <h2>§ 5 Lieferung</h2>
+  <p>
+    (1) Teaser und Snapshots werden als PDF-Datei per Download-Link oder als E-Mail-Anhang bereitgestellt. Bei Bestellung
+    per E-Mail erfolgt die Bereitstellung in der Regel innerhalb von zwei Werktagen nach Vertragsschluss. Beim Kauf über
+    einen Zahlungsanbieter erfolgt die Bereitstellung im Anschluss an den Bezahlvorgang.
+  </p>
+  <p>
+    (2) Der Kunde ist dafür verantwortlich, eine erreichbare E-Mail-Adresse anzugeben und die Datei innerhalb der
+    Gültigkeit eines Download-Links zu speichern. Geht eine Datei verloren, stellt LOC-IN sie auf Anfrage erneut bereit.
+  </p>
+  <p>(3) Liefertermine für Clusterprofile und Mandate werden individuell vereinbart.</p>
+
+  <h2>§ 6 Nutzungsrechte</h2>
+  <p>
+    (1) Die Analysen sind urheberrechtlich geschützt. Mit vollständiger Zahlung erhält der Kunde ein einfaches, zeitlich
+    unbegrenztes, nicht übertragbares Recht, die erworbene Analyse für eigene interne Zwecke zu nutzen. Dazu gehört die
+    Weitergabe innerhalb der eigenen Organisation sowie an Gremien und Berater, die zur Verschwiegenheit verpflichtet
+    sind.
+  </p>
+  <p>
+    (2) Die Veröffentlichung, der Weiterverkauf und die Weitergabe an sonstige Dritte, auch in Auszügen, bedürfen der
+    vorherigen Zustimmung von LOC-IN in Textform. Zitate einzelner Aussagen mit der Quellenangabe „LOC-IN – European
+    Cluster Intelligence, Stand [Datum]“ sind zulässig.
+  </p>
+  <p>
+    (3) Der kostenlose Teaser darf mit Quellenangabe unverändert weitergegeben werden. Für Clusterprofile und Mandate
+    können abweichende Nutzungsrechte vereinbart werden.
+  </p>
+
+  <h2>§ 7 Mängelrechte</h2>
+  <p>
+    (1) Der Kunde hat offensichtliche Mängel, insbesondere eine unvollständige oder nicht lesbare Datei, innerhalb von
+    14 Tagen nach Bereitstellung in Textform anzuzeigen.
+  </p>
+  <p>
+    (2) Bei Mängeln leistet LOC-IN zunächst nach eigener Wahl Nacherfüllung durch Berichtigung oder erneute
+    Bereitstellung. Schlägt die Nacherfüllung fehl, kann der Kunde den Preis mindern oder vom Vertrag zurücktreten.
+  </p>
+  <p>
+    (3) Abweichungen, die auf dem im Dokument genannten Datenstand oder auf späteren Änderungen der zugrunde liegenden
+    Quellen beruhen, sind keine Mängel.
+  </p>
+  <p>
+    (4) Mängelansprüche verjähren in einem Jahr ab Bereitstellung. Dies gilt nicht für Ansprüche nach § 8 Abs. 1 und bei
+    arglistigem Verschweigen eines Mangels.
+  </p>
+
+  <h2>§ 8 Haftung</h2>
+  <p>
+    (1) LOC-IN haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit, bei Verletzung des Lebens, des Körpers oder
+    der Gesundheit, nach dem Produkthaftungsgesetz sowie im Umfang einer übernommenen Garantie.
+  </p>
+  <p>
+    (2) Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten haftet LOC-IN nur auf den vertragstypischen,
+    vorhersehbaren Schaden. Wesentliche Vertragspflichten sind solche, deren Erfüllung die ordnungsgemäße Durchführung
+    des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung der Kunde regelmäßig vertrauen darf.
+  </p>
+  <p>
+    (3) Im Übrigen ist die Haftung für leichte Fahrlässigkeit ausgeschlossen. Insbesondere haftet LOC-IN nicht für
+    Entscheidungen, die der Kunde auf Grundlage der Analysen trifft, soweit diese auf als HYPOTHESE oder NICHT GEPRÜFT
+    gekennzeichneten Aussagen beruhen.
+  </p>
+  <p>(4) Die vorstehenden Regelungen gelten auch zugunsten von Erfüllungsgehilfen von LOC-IN.</p>
+
+  <h2>§ 9 Vertraulichkeit und Datenschutz</h2>
+  <p>
+    Informationen, die der Kunde im Rahmen von Clusterprofilen oder Mandaten zur Verfügung stellt, behandelt LOC-IN
+    vertraulich. Zur Verarbeitung personenbezogener Daten gilt die
+    <a class="link" href={url("/datenschutz")}>Datenschutzerklärung</a>.
+  </p>
+
+  <h2>§ 10 Schlussbestimmungen</h2>
+  <p>
+    (1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).
+  </p>
+  <p>
+    (2) Ist der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen,
+    ist ausschließlicher Gerichtsstand für alle Streitigkeiten aus dem Vertragsverhältnis Darmstadt. LOC-IN ist
+    berechtigt, auch am Sitz des Kunden zu klagen.
+  </p>
+  <p>
+    (3) Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen
+    unberührt. An die Stelle der unwirksamen Bestimmung tritt die gesetzliche Regelung.
+  </p>
+</Legal>

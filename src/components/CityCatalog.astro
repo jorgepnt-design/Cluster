@@ -1,0 +1,107 @@
+---
+import SectionHead from "./SectionHead.astro";
+import CityCard from "./CityCard.astro";
+import CityMap from "./CityMap.astro";
+import { cities, regions } from "../lib/cities";
+import { site } from "../config/site";
+---
+
+<section id="analysen" class="scroll-mt-16 py-16 md:py-24" aria-labelledby="analysen-title">
+  <div class="container-page">
+    <div class="grid gap-10 lg:grid-cols-[1fr_20rem] lg:items-end xl:grid-cols-[1fr_23rem]">
+      <div>
+        <SectionHead num="01" rubric="Analysen" title="39 Städte, ein Standard." id="analysen-title">
+          <p>
+            Jede Stadt ist nach demselben Raster analysiert. Den Teaser laden Sie kostenlos, den fünfseitigen Snapshot kaufen
+            Sie direkt. Datenstand {site.stand}.
+          </p>
+        </SectionHead>
+
+        <form class="mt-10 grid gap-4 border-y border-grey-line py-5 sm:grid-cols-2" role="search" data-city-filter>
+          <div class="sm:col-span-2">
+            <label class="label" for="f-search">Suche</label>
+            <input class="field" id="f-search" type="search" name="q" placeholder="Stadt, Region oder Korridor" autocomplete="off" />
+          </div>
+          <div>
+            <label class="label" for="f-region">Region / Bundesland</label>
+            <select class="field" id="f-region" name="region">
+              <option value="">Alle Regionen</option>
+              {regions.map((r) => <option value={r}>{r}</option>)}
+            </select>
+          </div>
+          <div>
+            <label class="label" for="f-sort">Sortierung</label>
+            <select class="field" id="f-sort" name="sort">
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="mt-4 flex items-center justify-between gap-4 text-sm text-grey-strong">
+          <p role="status" aria-live="polite" data-count>{cities.length} Städte</p>
+          <button type="button" class="btn-ghost text-sm" data-reset hidden>Filter zurücksetzen</button>
+        </div>
+      </div>
+
+      <aside class="hidden lg:block" aria-label="Karte der Städte">
+        <CityMap />
+      </aside>
+    </div>
+
+    <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-city-list>
+      {cities.map((city) => <CityCard city={city} />)}
+    </ul>
+    <p class="hidden border border-grey-line bg-grey-bg p-6 text-grey-strong" data-empty>
+      Keine Stadt gefunden. Bitte Suchbegriff oder Region ändern.
+    </p>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-city-filter]");
+  const list = document.querySelector<HTMLElement>("[data-city-list]");
+  if (form && list) {
+    const cards = [...list.querySelectorAll<HTMLElement>("[data-city-card]")];
+    const count = document.querySelector("[data-count]")!;
+    const empty = document.querySelector<HTMLElement>("[data-empty]")!;
+    const reset = document.querySelector<HTMLButtonElement>("[data-reset]")!;
+    const collator = new Intl.Collator("de");
+    const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ß/g, "ss");
+
+    // Region aus der URL übernehmen (z. B. /?region=Hessen#analysen)
+    const params = new URLSearchParams(location.search);
+    const regionParam = params.get("region");
+    if (regionParam) (form.elements.namedItem("region") as HTMLSelectElement).value = regionParam;
+
+    const apply = () => {
+      const data = new FormData(form);
+      const q = norm(String(data.get("q") ?? "").trim());
+      const region = String(data.get("region") ?? "");
+      const dir = data.get("sort") === "za" ? -1 : 1;
+
+      let visible = 0;
+      cards
+        .sort((a, b) => dir * collator.compare(a.dataset.name!, b.dataset.name!))
+        .forEach((card) => {
+          const match = (!region || card.dataset.region === region) && (!q || norm(card.dataset.search!).includes(q));
+          card.hidden = !match;
+          if (match) visible++;
+          list.append(card);
+          document.querySelector(`[data-map-dot="${card.dataset.slug}"]`)?.classList.toggle("is-dimmed", !match);
+        });
+
+      count.textContent = visible === 1 ? "1 Stadt" : `${visible} Städte`;
+      empty.classList.toggle("hidden", visible > 0);
+      reset.hidden = !q && !region && dir === 1;
+    };
+
+    form.addEventListener("input", apply);
+    form.addEventListener("submit", (e) => e.preventDefault());
+    reset.addEventListener("click", () => {
+      form.reset();
+      apply();
+    });
+    apply();
+  }
+</script>
