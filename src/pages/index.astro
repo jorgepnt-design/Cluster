@@ -1,5 +1,41 @@
 ---
 import Base from "../layouts/Base.astro";
-import BuyButton from "../components/BuyButton.astro";
+import Hero from "../components/Hero.astro";
+import CityCatalog from "../components/CityCatalog.astro";
+import Offers from "../components/Offers.astro";
+import Methodik from "../components/Methodik.astro";
+import Zielgruppen from "../components/Zielgruppen.astro";
+import About from "../components/About.astro";
+import Faq from "../components/Faq.astro";
+import Contact from "../components/Contact.astro";
+import { site } from "../config/site";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "LOC-IN – Cluster Management as a Service",
+  url: site.web,
+  email: site.email,
+  telephone: site.phone,
+  founder: { "@type": "Person", name: site.person },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    postalCode: "64293",
+    addressLocality: "Darmstadt",
+    addressCountry: "DE",
+  },
+  areaServed: ["DE", "FR", "LU"],
+};
 ---
-<Base title="Test"><div class="container-page py-20"><BuyButton slug="aachen" product="snapshot" /></div></Base>
+
+<Base title="Standortanalysen für 39 Städte · LOC-IN European Cluster Intelligence" jsonLd={jsonLd}>
+  <Hero />
+  <CityCatalog />
+  <Offers />
+  <Methodik />
+  <Zielgruppen />
+  <About />
+  <Faq />
+  <Contact />
+</Base>

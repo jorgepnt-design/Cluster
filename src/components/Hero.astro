@@ -1,0 +1,61 @@
+---
+import NetworkGraphic from "./NetworkGraphic.astro";
+import { url } from "../lib/cities";
+import { site } from "../config/site";
+
+const facts = [
+  { value: "39", label: "Städte" },
+  { value: "3", label: "Länder – DE, FR, LU und Grenzräume" },
+  { value: site.stand, label: "Datenstand" },
+  { value: "Quelle", label: "zu jeder Zahl, Status zu jeder Aussage" },
+];
+---
+
+<section class="border-b border-grey-line">
+  <div class="container-page grid items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+    <div>
+      <p class="rubric">European Cluster Intelligence</p>
+      <h1 class="mt-5 text-[2.1rem] leading-[1.12] sm:text-5xl lg:text-[3.4rem]">
+        Standortanalysen für 39 Städte – belegt, vergleichbar, europäisch.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-grey-strong">
+        Cluster, Forschung, Grenzräume und Vergaberahmen – belegt mit Quellen und verglichen mit Frankreich und Italien.
+        Für Wirtschaftsförderungen, Projektentwickler und Investoren.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 xs:flex-row">
+        <a href={url("/#analysen")} class="btn btn-primary">Kostenlosen Teaser laden</a>
+        <a href={url("/#analysen")} class="btn btn-secondary">Städte ansehen</a>
+      </div>
+      <p class="mt-5 text-sm text-grey-strong">
+        Jede Aussage ist gekennzeichnet:
+        <span class="chip chip-fakt ml-1">Fakt</span>
+        <span class="chip chip-hypothese">Hypothese</span>
+        <span class="chip chip-offen">Nicht geprüft</span>
+      </p>
+    </div>
+    <div class="mx-auto w-full max-w-md lg:max-w-none">
+      <NetworkGraphic />
+      <p class="mt-2 text-right text-xs text-grey-strong">Schematisch: Städte und Flussachsen der Rhein-Region</p>
+    </div>
+  </div>
+
+  <div class="border-t border-grey-line bg-grey-bg">
+    <dl class="container-page grid grid-cols-2 lg:grid-cols-4">
+      {
+        facts.map((f, i) => (
+          <div
+            class:list={[
+              "flex flex-col py-6 pr-4",
+              i % 2 === 1 && "border-l border-grey-line pl-4 lg:pl-6",
+              i >= 2 && "border-t border-grey-line lg:border-t-0",
+              i === 2 && "lg:border-l lg:pl-6",
+            ]}
+          >
+            <dt class="order-2 mt-1 text-sm text-grey-strong">{f.label}</dt>
+            <dd class="kpi-value order-1 text-2xl sm:text-3xl">{f.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
