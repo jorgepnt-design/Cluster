@@ -12,14 +12,14 @@ export type Hosting = "vercel" | "github-pages";
 
 export const legal = {
   /** Umsatzsteuer-Identifikationsnummer nach § 27a UStG, z. B. "DE123456789". "keine", falls nicht vorhanden. */
-  vatId: null as string | "keine" | null,
+  vatId: "keine" as string | "keine" | null, // wird ggf. nachgereicht
 
   /**
    * Erlaubnis nach § 34c GewO (Immobilienmakler/-darlehensvermittler).
    * Falls vorhanden: zuständige Aufsichtsbehörde eintragen, z. B. "Stadt Darmstadt, Gewerbeamt, Anschrift".
    * "keine", falls keine erlaubnispflichtige Tätigkeit ausgeübt wird.
    */
-  brokerPermitAuthority: null as string | "keine" | null,
+  brokerPermitAuthority: "Gewerbeamt Darmstadt, Grafenstraße 30, 64283 Darmstadt" as string | "keine" | null,
 
   /** Wo die Website gehostet wird. Bestimmt den Abschnitt „Hosting“ der Datenschutzerklärung. */
   hosting: "vercel" as Hosting,

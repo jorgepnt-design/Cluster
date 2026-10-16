@@ -189,7 +189,7 @@ Der Workflow `.github/workflows/deploy.yml` liegt bereits im Repository.
 | Vorschaubilder der Teaser (optional) | `public/previews/<slug>.png` |
 | Foto Nicole Da Costa Pinto | `src/components/About.astro` (Platzhalter mit Kommentar) |
 | Inhaltsverzeichnis des Snapshots mit den PDFs abgleichen | `src/config/products.ts` → `snapshotToc` |
-| USt-ID und Angabe zu § 34c GewO | `src/config/legal.ts` |
-| Hosting-Anbieter (Vercel oder GitHub Pages) | `src/config/legal.ts` → `hosting` |
+| USt-ID nachtragen, sobald vorhanden (`vatId`) | `src/config/legal.ts` |
+| Hosting: Vercel (bei Wechsel anpassen) | `src/config/legal.ts` → `hosting` |
 | Newsletter-Anbieter, sobald Teaser-Formular aktiv | `src/config/legal.ts` → `teaserLeadProvider` |
 | AGB-Festlegungen bestätigen, Rechtstexte prüfen lassen | `src/pages/agb.astro` u. a. |
