@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 // SITE_URL: endgültige Domain (z. B. https://analysen.loc-in.com).
@@ -12,11 +11,6 @@ export default defineConfig({
   site,
   base,
   trailingSlash: "ignore",
-  integrations: [
-    sitemap({
-      filter: (page) => !page.includes("/404"),
-    }),
-  ],
   vite: {
     plugins: [tailwindcss()],
   },
