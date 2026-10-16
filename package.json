@@ -1,0 +1,23 @@
+{
+  "name": "loc-in-cluster-intelligence",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landingpage LOC-IN – European Cluster Intelligence",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.0",
+    "tailwindcss": "^4.3.3"
+  }
+}

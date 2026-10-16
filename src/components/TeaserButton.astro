@@ -1,0 +1,36 @@
+---
+/**
+ * Download des kostenlosen Teasers.
+ * Ohne Lead-Endpunkt (forms.teaserLeadEndpoint = null): direkter Link auf das PDF.
+ * Mit Endpunkt: kurzes E-Mail-Formular, danach Download.
+ */
+import { forms } from "../config/site";
+import { getCity, teaserHref } from "../lib/cities";
+
+interface Props {
+  slug: string;
+  label?: string;
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md";
+  class?: string;
+}
+
+const { slug, label = "Teaser (gratis)", variant = "secondary", size = "md", class: extra = "" } = Astro.props;
+const city = getCity(slug)!;
+const href = teaserHref(city);
+const cls = ["btn", variant === "primary" ? "btn-primary" : "btn-secondary", size === "sm" ? "btn-sm" : "", extra]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{
+  forms.teaserLeadEndpoint ? (
+    <button type="button" class={cls} data-teaser-dialog data-city={city.name} data-href={href} aria-haspopup="dialog">
+      {label}
+    </button>
+  ) : (
+    <a href={href} class={cls} download aria-label={`${label}: Teaser ${city.name} als PDF herunterladen`}>
+      {label}
+    </a>
+  )
+}

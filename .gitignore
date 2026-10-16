@@ -1,0 +1,25 @@
+# Build
+dist/
+.astro/
+node_modules/
+
+# Umgebung
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+
+# Betriebssystem / Editor
+.DS_Store
+.vscode/
+.idea/
+
+# ------------------------------------------------------------
+# Kostenpflichtige und interne Dokumente NIE ins Repository!
+# Erlaubt sind nur die kostenlosen Teaser in public/downloads/teaser/.
+# ------------------------------------------------------------
+*_1_Intern_Analyse.pdf
+*_3_Snapshot.pdf
+*_Clusterprofil*.pdf

@@ -1,0 +1,1406 @@
+[
+  {
+    "slug": "aachen",
+    "name": "Aachen",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Forschungsstandort im Dreiländereck – stark organisiert, Grenzbrücke ausbaufähig",
+    "corridor": "Aachen – Maastricht – Lüttich / Euregio Maas-Rhein",
+    "teaser_headline": "Aachen ist bestens organisiert. Die nächste Stufe liegt jenseits der Grenze.",
+    "teaser_intro": "RWTH, FH Aachen, Forschungszentrum Jülich und der RWTH Aachen Campus mit sechs realisierten Forschungsclustern machen Aachen zu einem der dichtesten Forschungsstandorte Europas. Nur wenige Kilometer entfernt liegen in Limburg und Lüttich eigene Campusse und Cluster. Das Grenzprogramm Interreg Maas-Rhein stellt dafür 125 Mio. € EU-Mittel bereit.",
+    "kpis": [
+      {
+        "value": "260.339",
+        "label": "Einwohner (Hauptwohnsitz)",
+        "source_note": "10/2026"
+      },
+      {
+        "value": "141.532",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "12/2025"
+      },
+      {
+        "value": "44.382",
+        "label": "Studierende RWTH (IHK-Angabe)",
+        "source_note": "o. D."
+      },
+      {
+        "value": "125 Mio. €",
+        "label": "EFRE Interreg VI A Euregio Maas-Rhein",
+        "source_note": "2021–2027"
+      }
+    ],
+    "files": {
+      "teaser": "Aachen_2_Teaser.pdf",
+      "snapshot": "Aachen_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "aschaffenburg",
+    "name": "Aschaffenburg",
+    "region": "Bayern",
+    "stand": "15.10.2026",
+    "subtitle": "Maschinenbau und Gesundheit am Untermain, Automotive unter Druck",
+    "corridor": "Untermain – Rhein-Main (Bayern–Hessen)",
+    "teaser_headline": "Die Fahrzeugindustrie am Untermain schrumpft. Die Frage ist, was nachwächst.",
+    "teaser_intro": "Am Bayerischen Untermain arbeiten 146.222 Menschen sozialversicherungspflichtig. In der Fahrzeugindustrie ist die Zahl innerhalb eines Jahres um 18 % gesunken. Maschinenbau, Energie-Speicher und Recycling bieten Chancen; mit der TH Aschaffenburg und Fraunhofer IWKS sind die Partner dafür vor Ort.",
+    "kpis": [
+      {
+        "value": "146.222",
+        "label": "SV-Beschäftigte Bayerischer Untermain",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "−18 %",
+        "label": "Beschäftigte Kfz und Kfz-Teile in einem Jahr",
+        "source_note": "2024→2025"
+      },
+      {
+        "value": "9.575",
+        "label": "Beschäftigte im Maschinenbau (Region)",
+        "source_note": "2025"
+      },
+      {
+        "value": "4.047",
+        "label": "Studierende TH Aschaffenburg",
+        "source_note": "WS 2025/26"
+      }
+    ],
+    "files": {
+      "teaser": "Aschaffenburg_2_Teaser.pdf",
+      "snapshot": "Aschaffenburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "bielefeld",
+    "name": "Bielefeld",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Oberzentrum in OWL mit Lebensmittel- und Industrieclustern – und schrumpfender Rücklage",
+    "corridor": "Ostwestfalen-Lippe (keine Grenzlage)",
+    "teaser_headline": "Bielefeld hat einen SILVER-Cluster für Lebensmittel. Der Weg zu GOLD führt über Toulouse.",
+    "teaser_intro": "Mit der Food-Processing Initiative sitzt in Bielefeld eines der wenigen ausgezeichneten Lebensmittelnetzwerke Deutschlands. Gemeinsam mit it's OWL ist Ostwestfalen-Lippe gut organisiert. Ein Vergleich mit französischen GOLD-Clustern zeigt, wo noch Potenzial liegt.",
+    "kpis": [
+      {
+        "value": "167.251",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.06.2024"
+      },
+      {
+        "value": "37.204",
+        "label": "Studierende an sechs Hochschulen",
+        "source_note": "WS 2024/25"
+      },
+      {
+        "value": "117",
+        "label": "Mitglieder Food-Processing Initiative",
+        "source_note": "o. D."
+      },
+      {
+        "value": "220+",
+        "label": "Mitglieder im Technologienetzwerk it's OWL",
+        "source_note": "06/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Bielefeld_2_Teaser.pdf",
+      "snapshot": "Bielefeld_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "bonn",
+    "name": "Bonn",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Cyber-Standort mit Cluster – und einem Haushalt am Limit",
+    "corridor": "Bonn / Rhein-Sieg – Rheinschiene Köln–Koblenz",
+    "teaser_headline": "Bonn hat ein Cyber-Ökosystem mit eigenem Cluster.",
+    "teaser_intro": "BSI, Cyber- und Informationsraum der Bundeswehr, Telekom, Fraunhofer FKIE, Universität und Hochschule bilden in Bonn ein Ökosystem für Cybersicherheit, das seit 2018 im Cyber Security Cluster Bonn organisiert ist. Für die Region zwischen Bonn und Koblenz stellt sich die Frage, wie Cyber und Defence zusammenwachsen.",
+    "kpis": [
+      {
+        "value": "1,69 Mrd. €",
+        "label": "Liquiditätskredite (Plan 2029)",
+        "source_note": "Plan 02/2025"
+      },
+      {
+        "value": "97–122 Mio. €",
+        "label": "Strukturelle Jahresdefizite 2025–2029",
+        "source_note": "Plan 02/2025"
+      },
+      {
+        "value": "337 Mio. €",
+        "label": "Gewerbesteuer-Ansatz 2025",
+        "source_note": "Plan 02/2025"
+      },
+      {
+        "value": "2018",
+        "label": "Gründung Cyber Security Cluster Bonn e.V.",
+        "source_note": ""
+      }
+    ],
+    "files": {
+      "teaser": "Bonn_2_Teaser.pdf",
+      "snapshot": "Bonn_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "bremen",
+    "name": "Bremen",
+    "region": "Bremen",
+    "stand": "15.10.2026",
+    "subtitle": "Clusterland mit Strategie – und ein Stahlwerk ohne grünen Plan",
+    "corridor": "Bremen – Oldenburg – Bremerhaven (Metropolregion Nordwest)",
+    "teaser_headline": "Bremen hat eine Clusterstrategie. Wie schneidet sie im Vergleich ab?",
+    "teaser_intro": "Mit der Innovationsstrategie Land Bremen 2030 fördert Bremen Luft- und Raumfahrt, maritime Wirtschaft, Windenergie und Lebensmittel; für 2026 bis 2028 stehen rund 20 Mio. € EFRE-Mittel bereit. Nach dem Rückzug von ArcelorMittal aus dem grünen Stahl und mit dem anstehenden Monitoring lohnt ein Blick nach Frankreich und Italien.",
+    "kpis": [
+      {
+        "value": "5",
+        "label": "Innovationsfelder der Innovationsstrategie 2030",
+        "source_note": "10/2025"
+      },
+      {
+        "value": "20 Mio. €",
+        "label": "EFRE-Innovationsmaßnahmen Phase B 2026–2028",
+        "source_note": "10/2025"
+      },
+      {
+        "value": "1,3 Mrd. €",
+        "label": "Bundesförderung grüner Stahl – nicht abgerufen",
+        "source_note": "06/2025"
+      },
+      {
+        "value": "8.106",
+        "label": "Gewerbeanmeldungen in der Stadt Bremen",
+        "source_note": "2024"
+      }
+    ],
+    "files": {
+      "teaser": "Bremen_2_Teaser.pdf",
+      "snapshot": "Bremen_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "bremerhaven",
+    "name": "Bremerhaven",
+    "region": "Bremen",
+    "stand": "15.10.2026",
+    "subtitle": "Fisch, Offshore-Wind und Wasserstoff – mit der höchsten Arbeitslosigkeit im Westen",
+    "corridor": "Bremerhaven – Bremen – Unterweser (Land Bremen / Niedersachsen)",
+    "teaser_headline": "Bremerhaven plant den Energy Port. Die Zulieferer sollten aus der Region kommen.",
+    "teaser_intro": "Im südlichen Fischereihafen plant Bremerhaven auf 90 Hektar einen Hafen für Offshore-Wind und Wasserstoff mit über 2.500 möglichen Arbeitsplätzen. Daneben arbeiten mehr als 3.000 Menschen in der Fisch- und Lebensmittelwirtschaft. Eine Struktur, die regionale Firmen in diese Wertschöpfung bringt, fehlt.",
+    "kpis": [
+      {
+        "value": "3.000+",
+        "label": "Beschäftigte in Fisch- und Lebensmittelwirtschaft (rund 80 Firmen)",
+        "source_note": "2025"
+      },
+      {
+        "value": "200.000 t",
+        "label": "Fisch pro Jahr, etwa die Hälfte der deutschen Produktion",
+        "source_note": "2025"
+      },
+      {
+        "value": "90 ha",
+        "label": "Areal Energy Port im südlichen Fischereihafen",
+        "source_note": "2025"
+      },
+      {
+        "value": "2.500+",
+        "label": "mögliche Arbeitsplätze durch den Energy Port",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Bremerhaven_2_Teaser.pdf",
+      "snapshot": "Bremerhaven_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "dortmund",
+    "name": "Dortmund",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Strukturwandel gelungen – Technologiepark als Motor, neue Stadtspitze",
+    "corridor": "Östliches Ruhrgebiet: Dortmund – Bochum – Unna (Logistik- und IT-Achse)",
+    "teaser_headline": "Dortmund hat den Strukturwandel geschafft. Jetzt geht es um das nächste Profil.",
+    "teaser_intro": "Im Umfeld des Technologiezentrums arbeiten 21.100 Menschen, die Wertschöpfung entspricht etwa einem Zehntel der Stadt. Unternehmen investierten 2025 rund 779 Mio. €. Mit einer neuen Stadtspitze stellt sich die Frage, welche Felder Dortmund in den nächsten Jahren tragen und wie sie organisiert sein sollen.",
+    "kpis": [
+      {
+        "value": "21.100",
+        "label": "Arbeitsplätze im Umfeld des Technologiezentrums",
+        "source_note": "2025"
+      },
+      {
+        "value": "779 Mio. €",
+        "label": "Unternehmensinvestitionen",
+        "source_note": "2025"
+      },
+      {
+        "value": "~10 %",
+        "label": "Anteil TZDO an der Bruttowertschöpfung",
+        "source_note": "2025"
+      },
+      {
+        "value": "−85 Mio. €",
+        "label": "Planminus Haushalt 2026",
+        "source_note": "12/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Dortmund_2_Teaser.pdf",
+      "snapshot": "Dortmund_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "duesseldorf",
+    "name": "Düsseldorf",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Dienstleistungsmetropole unter Steuerdruck – Industrie schrumpft",
+    "corridor": "Rheinschiene Düsseldorf – Kreis Mettmann – Rhein-Ruhr (international: Japan)",
+    "teaser_headline": "Düsseldorf ist stark in Dienstleistungen. Der Industriekern braucht ein neues Zielbild.",
+    "teaser_intro": "Düsseldorf hat den höchsten Dienstleistungsanteil in NRW, eine hohe Akademikerquote und viele Gründungen. 2025 gab es aber so viele Freisetzungen wie seit 2020 nicht mehr; Industrie, Zeitarbeit und Handel schrumpfen, das Gesundheitswesen wächst. Die Frage ist, welche Kompetenzen aus dem Industriekern in die Wachstumsfelder übergehen können.",
+    "kpis": [
+      {
+        "value": "460.155",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "83,7 %",
+        "label": "Anteil Dienstleistungen an SV-Beschäftigten",
+        "source_note": "2023"
+      },
+      {
+        "value": "−200 Mio. €",
+        "label": "Gewerbesteuer 2026 unter früherer Annahme",
+        "source_note": "03/2026"
+      },
+      {
+        "value": "19.000+",
+        "label": "Zugänge in Arbeitslosigkeit aus Beschäftigung",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Düsseldorf_2_Teaser.pdf",
+      "snapshot": "Düsseldorf_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "essen",
+    "name": "Essen",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Energie- und Wasserstoffstadt mit hohem Dienstleistungsanteil",
+    "corridor": "Ruhrgebiet: Essen – Duisburg – Bochum (Wasserstoff- und Energieachse)",
+    "teaser_headline": "Essen hat früh auf Wasserstoff gesetzt. Zeit für eine Zwischenbilanz.",
+    "teaser_intro": "Seit 2021 bringt der H2-Beirat der Stadt Energiekonzerne, Netzbetreiber, Stadtwerke und Forschung zusammen, und der Start-up-Hub H2UB wurde vom Land mit 4,5 Mio. € über fünf Jahre gefördert. Die Förderung läuft aus, die Wasserstoffwirtschaft ist in einer neuen Phase. Die Frage ist, wie es weitergeht.",
+    "kpis": [
+      {
+        "value": "271.635",
+        "label": "SV-Beschäftigte am Arbeitsort (vorläufig)",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "85,2 %",
+        "label": "Anteil tertiärer Sektor",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "11,4 %",
+        "label": "Arbeitslosenquote",
+        "source_note": "06/2025"
+      },
+      {
+        "value": "4,5 Mio. €",
+        "label": "Landesförderung Wasserstoff-Start-up-Hub",
+        "source_note": "2021"
+      }
+    ],
+    "files": {
+      "teaser": "Essen_2_Teaser.pdf",
+      "snapshot": "Essen_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "freiburg",
+    "name": "Freiburg",
+    "region": "Baden-Württemberg",
+    "stand": "15.10.2026",
+    "subtitle": "Gesundheit, Solar und Exzellenz im Dreiländereck",
+    "corridor": "Freiburg – Colmar – Mulhouse (– Basel)",
+    "teaser_headline": "Freiburg ist Green City. Gewachsen ist aber vor allem die Gesundheit.",
+    "teaser_intro": "Freiburg hat mit dem Cluster Green City und dem Green Industry Park zwei bekannte Initiativen für Umwelt und Energie. Die stärkste Dynamik zeigt aber der Gesundheitssektor: 33.633 Arbeitsplätze, ein Drittel mehr als 2015, dazu neue Ansiedlungen und seit Oktober 2026 eine Exzellenzuniversität. Für dieses Feld fehlt eine eigene Clusterstruktur.",
+    "kpis": [
+      {
+        "value": "33.633",
+        "label": "Arbeitsplätze im Gesundheitssektor",
+        "source_note": "2023"
+      },
+      {
+        "value": "+30,6 %",
+        "label": "Wachstum Gesundheitsjobs 2015–2023",
+        "source_note": "2015–2023"
+      },
+      {
+        "value": "140.073",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.06.2024"
+      },
+      {
+        "value": "Exzellenz",
+        "label": "Universität Freiburg erhält Exzellenztitel",
+        "source_note": "02.10.2026"
+      }
+    ],
+    "files": {
+      "teaser": "Freiburg_2_Teaser.pdf",
+      "snapshot": "Freiburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "giessen",
+    "name": "Gießen",
+    "region": "Hessen",
+    "stand": "15.10.2026",
+    "subtitle": "Drei Exzellenzcluster, ein Logistik-Großprojekt – und eine Haushaltssperre",
+    "corridor": "Mittelhessen (Gießen – Marburg – Wetzlar)",
+    "teaser_headline": "Gießen forscht in drei Exzellenzclustern. Wer macht daraus Wirtschaft?",
+    "teaser_intro": "Die Justus-Liebig-Universität ist an drei Exzellenzclustern beteiligt, von Herz- und Lungenforschung bis zu Batterien. Mit dem Zalando-Zentrum wächst die Logistik. Eine Struktur, die Forschung und regionale Wirtschaft verbindet, fehlt bisher – in Gießen wie in ganz Mittelhessen.",
+    "kpis": [
+      {
+        "value": "3",
+        "label": "Exzellenzcluster mit JLU-Beteiligung (CPI, TAM, POLiS)",
+        "source_note": "22.05.2025"
+      },
+      {
+        "value": "25.000",
+        "label": "Studierende an der JLU (rund)",
+        "source_note": "05/2025"
+      },
+      {
+        "value": "1.700",
+        "label": "geplante Arbeitsplätze im Zalando-Logistikzentrum",
+        "source_note": "06/2026"
+      },
+      {
+        "value": "130.000 m²",
+        "label": "Gebäudefläche Zalando-Logistikzentrum",
+        "source_note": "06/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Gießen_2_Teaser.pdf",
+      "snapshot": "Gießen_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "hamburg",
+    "name": "Hamburg",
+    "region": "Hamburg",
+    "stand": "15.10.2026",
+    "subtitle": "Die dichteste gelabelte Clusterlandschaft Deutschlands",
+    "corridor": "Metropolregion Hamburg (Hamburg – Schleswig-Holstein – Niedersachsen)",
+    "teaser_headline": "Hamburg hat drei GOLD-Cluster. Der Vergleich mit Frankreich zeigt, was als Nächstes kommt.",
+    "teaser_intro": "Kaum eine Region in Europa hat so viele ausgezeichnete Cluster wie Hamburg: Aviation, Logistik und Life Sciences tragen das EUCLES-Label GOLD. Für Projekte, die Cluster miteinander verbinden, stellt Hamburg EFRE-Mittel bereit. Ein Blick nach Toulouse und Lyon zeigt, wie andere Spitzencluster ihre nächste Phase gestalten.",
+    "kpis": [
+      {
+        "value": "3",
+        "label": "Cluster mit EUCLES GOLD (Aviation, Logistik, Life Sciences)",
+        "source_note": "15.10.2026"
+      },
+      {
+        "value": "5",
+        "label": "Exzellenzcluster (Uni Hamburg und TUHH)",
+        "source_note": "22.05.2025"
+      },
+      {
+        "value": "4 Mio. €",
+        "label": "EFRE für Clusterbrücken-Projekte",
+        "source_note": "05/2025"
+      },
+      {
+        "value": "44 Mrd. €",
+        "label": "Doppelhaushalt 2025/2026 (rund)",
+        "source_note": "06/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Hamburg_2_Teaser.pdf",
+      "snapshot": "Hamburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "hannover",
+    "name": "Hannover",
+    "region": "Niedersachsen",
+    "stand": "15.10.2026",
+    "subtitle": "Am Scheideweg: Industrie schrumpft, zwei neue Technologieparks entstehen",
+    "corridor": "Region Hannover (keine Grenzlage)",
+    "teaser_headline": "Hannover baut zwei Technologieparks. Jetzt braucht es die Cluster dazu.",
+    "teaser_intro": "In der Region Hannover schrumpfen Automobil und Maschinenbau, während Energie, IT und Gesundheit wachsen. Mit dem Technologiepark Nordstadt für KI und Cybersicherheit und dem Campus in Garbsen schafft die Region neue Orte. Damit sie sich füllen, braucht es ein Clusterkonzept, das Forschung und Unternehmen zusammenbringt.",
+    "kpis": [
+      {
+        "value": "548.000",
+        "label": "SV-Beschäftigte in der Region Hannover",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "−17 %",
+        "label": "Beschäftigte in Metallberufen in einem Jahr",
+        "source_note": "2024–2025"
+      },
+      {
+        "value": "+8,7 %",
+        "label": "Jährliches Wachstum Energiebranche 2020–2025",
+        "source_note": "2025"
+      },
+      {
+        "value": "25.000 m²",
+        "label": "Technologiepark Nordstadt (KI, Cybersicherheit)",
+        "source_note": "04/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Hannover_2_Teaser.pdf",
+      "snapshot": "Hannover_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "kaiserslautern",
+    "name": "Kaiserslautern",
+    "region": "Rheinland-Pfalz",
+    "stand": "15.10.2026",
+    "subtitle": "Forschungsdichte trifft Nutzfahrzeuge – nach dem Aus der Batteriefabrik",
+    "corridor": "Westpfalz – Saarland – Lothringen / Großregion",
+    "teaser_headline": "Kaiserslautern hat Spitzenforschung und ein Nutzfahrzeug-Cluster. Nach dem ACC-Aus braucht es ein neues Zielbild.",
+    "teaser_intro": "Kaiserslautern verbindet ein DFKI, zwei Fraunhofer-Institute und ein Max-Planck-Institut mit einem gelabelten Nutzfahrzeug-Cluster. Im Februar 2026 hat ACC die Batteriefabrik mit rund 2.000 geplanten Stellen endgültig abgesagt. Die Wirtschaftsförderung plant eine Zukunftsstudie, und die Region erhält Landesmittel. Jetzt ist der Moment, Stärken und Lücken neu zu sortieren.",
+    "kpis": [
+      {
+        "value": "100.150",
+        "label": "Einwohner",
+        "source_note": "31.12.2025"
+      },
+      {
+        "value": "700+",
+        "label": "Beschäftigte Fraunhofer ITWM und IESE",
+        "source_note": "2024"
+      },
+      {
+        "value": "93",
+        "label": "Mitglieder Commercial Vehicle Cluster",
+        "source_note": "o. D."
+      },
+      {
+        "value": "2.000",
+        "label": "Geplante Stellen der abgesagten ACC-Batteriefabrik",
+        "source_note": "02/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Kaiserslautern_2_Teaser.pdf",
+      "snapshot": "Kaiserslautern_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "karlsruhe",
+    "name": "Karlsruhe",
+    "region": "Baden-Württemberg",
+    "stand": "15.10.2026",
+    "subtitle": "IT-Hauptstadt mit Exzellenzuniversität und Grenze zum Elsass – und knapper Kasse",
+    "corridor": "PAMINA: Karlsruhe – Südpfalz – Nordelsass",
+    "teaser_headline": "Karlsruhe ist bestens vernetzt. Nur die Grenze wird wirtschaftlich kaum genutzt.",
+    "teaser_intro": "Mit dem KIT, dem IT-Netzwerk CyberForum und der TechnologieRegion ist Karlsruhe einer der stärksten Innovationsstandorte im Südwesten. Im Eurodistrikt PAMINA leben 1,7 Millionen Menschen, fast 16.000 pendeln über die Grenze. Wirtschaftliche Zusammenarbeit über den Rhein bleibt dennoch die Ausnahme.",
+    "kpis": [
+      {
+        "value": "1.200",
+        "label": "Mitglieder im IT-Netzwerk CyberForum",
+        "source_note": "o. D."
+      },
+      {
+        "value": "1,7 Mio.",
+        "label": "Einwohner im Eurodistrikt PAMINA",
+        "source_note": "2018"
+      },
+      {
+        "value": "16.000",
+        "label": "Grenzpendler im PAMINA-Raum (fast)",
+        "source_note": "2018"
+      },
+      {
+        "value": "425 Mio. €",
+        "label": "Gewerbesteuer-Ansatz 2026",
+        "source_note": "07/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Karlsruhe_2_Teaser.pdf",
+      "snapshot": "Karlsruhe_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "kehl",
+    "name": "Kehl",
+    "region": "Baden-Württemberg",
+    "stand": "15.10.2026",
+    "subtitle": "Hafen, Stahl und Kreislauf direkt an der Grenze zu Straßburg",
+    "corridor": "Kehl – Strasbourg – Ortenau (Eurodistrikt)",
+    "teaser_headline": "Kehl hat den Stahlhafen am Oberrhein. Fehlt nur die Brücke ins Cluster.",
+    "teaser_intro": "Der Rheinhafen Kehl ist der wichtigste Umschlagplatz für Stahl und Schrott am Oberrhein: 7,1 Mio. t im Jahr 2025, 4.700 Beschäftigte in 110 Betrieben. Straßburg liegt eine Tramfahrt entfernt, der Eurodistrikt hat sein Generalsekretariat in Kehl. Eine Organisation, die Hafen, Stahl und Kreislaufwirtschaft über die Grenze verbindet, gibt es noch nicht.",
+    "kpis": [
+      {
+        "value": "7,1 Mio. t",
+        "label": "Umschlag Hafen Kehl (Schiff + Bahn)",
+        "source_note": "2025"
+      },
+      {
+        "value": "76 %",
+        "label": "Anteil Eisen und Stahl am Umschlag",
+        "source_note": "2025"
+      },
+      {
+        "value": "4.700",
+        "label": "Beschäftigte im Rheinhafen (110 Betriebe)",
+        "source_note": "2023"
+      },
+      {
+        "value": "980.000",
+        "label": "Einwohner im Eurodistrikt",
+        "source_note": "2023"
+      }
+    ],
+    "files": {
+      "teaser": "Kehl_2_Teaser.pdf",
+      "snapshot": "Kehl_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "koblenz",
+    "name": "Koblenz",
+    "region": "Rheinland-Pfalz",
+    "stand": "15.10.2026",
+    "subtitle": "Beschaffungsstandort der Bundeswehr mit IT- und Sicherheitspotenzial",
+    "corridor": "Binnenraum Mittelrhein: Koblenz – Mayen-Koblenz – Westerwald, Achse Mainz/Bonn",
+    "teaser_headline": "Koblenz hat den größten Auftraggeber im Haus, aber noch kein Netzwerk drumherum.",
+    "teaser_intro": "Koblenz ist Dienstsitz des Beschaffungsamts der Bundeswehr. Rund 7.500 Menschen arbeiten in Bundeswehr-Einrichtungen der Stadt. Unternehmen siedeln sich wegen dieser Nähe an, und das Land hat 2026 ein Netzwerk für die Sicherheits- und Verteidigungsindustrie gegründet. Eine regionale Organisation, die Koblenz als Knoten darin verankert, gibt es noch nicht.",
+    "kpis": [
+      {
+        "value": "114.717",
+        "label": "Einwohner (Hauptwohnsitz)",
+        "source_note": "31.12.2025"
+      },
+      {
+        "value": "78.359",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.06.2024"
+      },
+      {
+        "value": "52.428",
+        "label": "Einpendler",
+        "source_note": "2024"
+      },
+      {
+        "value": "7.500",
+        "label": "Zivile und militärische Bundeswehr-Beschäftigte",
+        "source_note": "o. D."
+      }
+    ],
+    "files": {
+      "teaser": "Koblenz_2_Teaser.pdf",
+      "snapshot": "Koblenz_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "koeln",
+    "name": "Köln",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Rekordbeschäftigung, Rekorddefizit – und ein Automobilkern im Rückbau",
+    "corridor": "Rheinland: Köln – Leverkusen – Rhein-Erft (Chemie- und Automobilachse)",
+    "teaser_headline": "Köln wächst in Dienstleistungen und Start-ups. Der Automobilkern braucht einen Übergang.",
+    "teaser_intro": "Köln hatte 2024 so viele Arbeitsplätze wie nie zuvor und 2025 ein Rekordjahr bei Gründungen. Zugleich hat Ford seit 2018 rund 8.500 Stellen abgebaut, weitere folgen. Energie, Umwelt und Handwerk wachsen. Die Frage ist, wie Kompetenzen aus dem Automobilkern dorthin wandern, und wo dafür Flächen entstehen.",
+    "kpis": [
+      {
+        "value": "627.000",
+        "label": "Arbeitsplätze (Rekord)",
+        "source_note": "2024"
+      },
+      {
+        "value": "−811 Mio. €",
+        "label": "Planerisches Defizit 2027",
+        "source_note": "Entwurf 09/2026"
+      },
+      {
+        "value": "~8.500",
+        "label": "Abgebaute Stellen bei Ford seit 2018",
+        "source_note": "2025"
+      },
+      {
+        "value": "500 ha",
+        "label": "Erwartete Lücke an Wirtschaftsflächen bis 2046",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Köln_2_Teaser.pdf",
+      "snapshot": "Köln_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "luxemburg",
+    "name": "Luxemburg",
+    "region": "Luxemburg",
+    "stand": "15.10.2026",
+    "subtitle": "Hauptstadt eines grenzüberschreitenden Arbeitsmarkts",
+    "corridor": "Luxemburg – Trier – Metz / Großregion",
+    "teaser_headline": "Luxemburg hat seine Cluster, aber zu wenig Partner jenseits der Grenze.",
+    "teaser_intro": "Luxemburg ist das wirtschaftliche Zentrum der Großregion. Fast jede zweite Stelle ist mit einem Grenzgänger besetzt. Der Staat fördert Cluster professionell, von HealthTech bis Holz. Was fehlt, sind verlässliche Partner auf der anderen Seite der Grenze: Kliniken, Flächen, Fachkräfte und Bauakteure.",
+    "kpis": [
+      {
+        "value": "136.208",
+        "label": "Einwohner Luxemburg-Stadt",
+        "source_note": "Anfang 2025"
+      },
+      {
+        "value": "530.264",
+        "label": "Beschäftigte in Luxemburg (Inland)",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "235.101",
+        "label": "davon Grenzgänger",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "55.400",
+        "label": "Beschäftigte Finanz- und Versicherungswesen",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Luxemburg_2_Teaser.pdf",
+      "snapshot": "Luxemburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "mainz",
+    "name": "Mainz",
+    "region": "Rheinland-Pfalz",
+    "stand": "15.10.2026",
+    "subtitle": "Biotech-Hub mit Haushaltsdruck",
+    "corridor": "Neckar-Rhein-Main: Mainz – Wiesbaden – Heidelberg",
+    "teaser_headline": "Mainz ist Biotech-Hub. Die Frage ist, was die Stadt daneben trägt.",
+    "teaser_intro": "Mainz hat sich mit Life Science Campus, Laborgebäuden und einer neuen Partnerschaft mit Heidelberg als Biotech-Standort etabliert. 5.400 Menschen arbeiten in Forschung und Entwicklung, 15.340 im Gesundheitswesen. Zugleich steht der Haushalt unter Auflagen. Eine breitere wirtschaftliche Basis wird damit zur strategischen Frage.",
+    "kpis": [
+      {
+        "value": "223.215",
+        "label": "Einwohner (Hauptwohnsitz)",
+        "source_note": "31.12.2025"
+      },
+      {
+        "value": "127.755",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.06.2024"
+      },
+      {
+        "value": "5.400",
+        "label": "Beschäftigte in Forschung und Entwicklung (WZ 72)",
+        "source_note": "30.06.2024"
+      },
+      {
+        "value": "12 ha",
+        "label": "Life Science Campus",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Mainz_2_Teaser.pdf",
+      "snapshot": "Mainz_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "mannheim",
+    "name": "Mannheim",
+    "region": "Baden-Württemberg",
+    "stand": "15.10.2026",
+    "subtitle": "Fünf eigene Cluster – und eine Kommunalaufsicht, die neue Vorhaben untersagt",
+    "corridor": "Rhein-Neckar: Mannheim – Ludwigshafen – Heidelberg (BW – RLP – HE)",
+    "teaser_headline": "Mannheim hat fünf Cluster. Der europäische Vergleich zeigt, welche am meisten tragen.",
+    "teaser_intro": "Mannheim betreibt mit Medizintechnik, Green Industry, Smart Industries, Social Economy und Creative Economy eine eigene Clusterpolitik. 2025 gab es acht Ansiedlungen auswärtiger Unternehmen, die Beschäftigung ist auf über 200.000 gestiegen. In schwierigen Zeiten lohnt der Blick, welche Felder am stärksten wirken.",
+    "kpis": [
+      {
+        "value": "201.518",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.06.2025"
+      },
+      {
+        "value": "5",
+        "label": "Cluster der städtischen Wirtschaftsförderung",
+        "source_note": "2025"
+      },
+      {
+        "value": "8",
+        "label": "Ansiedlungen auswärtiger Unternehmen",
+        "source_note": "2025"
+      },
+      {
+        "value": "34",
+        "label": "Mitglieder Green Industry Cluster e.V.",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Mannheim_2_Teaser.pdf",
+      "snapshot": "Mannheim_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "marburg",
+    "name": "Marburg",
+    "region": "Hessen",
+    "stand": "15.10.2026",
+    "subtitle": "Pharmastandort im Umbruch – Biontech schließt, CSL baut ab",
+    "corridor": "Mittelhessen (Marburg – Gießen)",
+    "teaser_headline": "Marburg muss seinen Pharmastandort neu erfinden. Die Bausteine sind da.",
+    "teaser_intro": "BioNTech schließt sein Marburger Werk 2028, auch CSL baut Stellen ab. Gleichzeitig gibt es neue Laborflächen, eine starke Universität und eine Taskforce aus Stadt, Unternehmen und Land. Was fehlt, ist eine Struktur, die daraus ein dauerhaftes Life-Science-Cluster macht.",
+    "kpis": [
+      {
+        "value": "80 %",
+        "label": "Anteil der Pharmaindustrie an der Gewerbesteuer",
+        "source_note": "2024–2026"
+      },
+      {
+        "value": "bis 1.500",
+        "label": "Stellen am Pharmastandort gefährdet (IG BCE)",
+        "source_note": "03/2026"
+      },
+      {
+        "value": "540",
+        "label": "Stellen bei BioNTech Marburg, Schließung 2028",
+        "source_note": "09/2026"
+      },
+      {
+        "value": "11.500 m²",
+        "label": "Laborflächen Innovation Hub Berghof",
+        "source_note": "11/2024"
+      }
+    ],
+    "files": {
+      "teaser": "Marburg_2_Teaser.pdf",
+      "snapshot": "Marburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "metz",
+    "name": "Metz",
+    "region": "Frankreich (Grand Est)",
+    "stand": "15.10.2026",
+    "subtitle": "Logistik, Kreativwirtschaft und Photonik – im Sog von Luxemburg",
+    "corridor": "Metz – Luxemburg – Saarbrücken (Großregion)",
+    "teaser_headline": "Metz wächst. Ein Teil seiner Fachkräfte arbeitet in Luxemburg.",
+    "teaser_intro": "Die private Beschäftigung in der Eurométropole de Metz ist seit 2014 um 12 % gestiegen, vor allem in Logistik und qualifizierten Dienstleistungen. Mit BliiDa und einem geplanten Photonik-Institut setzt die Metropole neue Akzente. Gleichzeitig pendeln über 73.000 Mosellaner nach Luxemburg. Ein Profil, das diese Entwicklungen verbindet, fehlt.",
+    "kpis": [
+      {
+        "value": "84.832",
+        "label": "Private Beschäftigte Eurométropole de Metz",
+        "source_note": "2024"
+      },
+      {
+        "value": "+12,1 %",
+        "label": "Beschäftigungswachstum 2014–2024",
+        "source_note": "2024"
+      },
+      {
+        "value": "73.200",
+        "label": "Einwohner der Moselle mit Arbeitsplatz in Luxemburg",
+        "source_note": "Insee 2021"
+      },
+      {
+        "value": "152 Mio. €",
+        "label": "Investitionen im Hauptbudget 2026",
+        "source_note": "04/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Metz_2_Teaser.pdf",
+      "snapshot": "Metz_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "muenchen",
+    "name": "München",
+    "region": "Bayern",
+    "stand": "15.10.2026",
+    "subtitle": "Gesättigter Clustermarkt, neuer Oberbürgermeister, steigende Schulden",
+    "corridor": "Metropolregion München (keine Grenzlage)",
+    "teaser_headline": "München wächst weiter. Die Basis dafür wird schmaler.",
+    "teaser_intro": "München hat 2025 einen neuen Beschäftigungsrekord und 3,63 Mrd. € Gewerbesteuer erreicht. Gleichzeitig kommen 36 % der Gewerbesteuer aus Banken und Versicherungen, die Schulden stiegen um 36 %, und der Büroleerstand wächst. Für den neuen Oberbürgermeister ist das ein Anlass, den Standort breiter aufzustellen.",
+    "kpis": [
+      {
+        "value": "976.230",
+        "label": "SV-Beschäftigte (neuer Höchststand)",
+        "source_note": "2025"
+      },
+      {
+        "value": "3,63 Mrd. €",
+        "label": "Gewerbesteuer",
+        "source_note": "2025"
+      },
+      {
+        "value": "7,3 Mrd. €",
+        "label": "Verschuldung der Stadt (+36 %)",
+        "source_note": "2025"
+      },
+      {
+        "value": "5,0 %",
+        "label": "Arbeitslosenquote (2024: 4,5 %)",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "München_2_Teaser.pdf",
+      "snapshot": "München_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "nuernberg",
+    "name": "Nürnberg",
+    "region": "Bayern",
+    "stand": "15.10.2026",
+    "subtitle": "Industrie schrumpft, Clusterdichte hoch, Haushaltssperre seit Juli 2026",
+    "corridor": "Nürnberg – Fürth – Erlangen (keine Grenzlage)",
+    "teaser_headline": "Nürnbergs Industrie schrumpft. Die Cluster sind da – reichen sie?",
+    "teaser_intro": "Nürnberg ist Sitz von Bayern Innovativ und mehreren ausgezeichneten Clustern. Trotzdem hat das verarbeitende Gewerbe binnen eines Jahres 4,9 % der Beschäftigten verloren, und die Arbeitslosenquote liegt bei 7,1 %. Die Frage ist, wie die vorhandenen Strukturen den Wandel stärker tragen.",
+    "kpis": [
+      {
+        "value": "−4,9 %",
+        "label": "Beschäftigte im verarbeitenden Gewerbe",
+        "source_note": "06/2024–06/2025"
+      },
+      {
+        "value": "7,1 %",
+        "label": "Arbeitslosenquote",
+        "source_note": "12/2025"
+      },
+      {
+        "value": "745 Mio. €",
+        "label": "Gewerbesteuer-Ansatz 2026",
+        "source_note": "11/2025"
+      },
+      {
+        "value": "320.595",
+        "label": "SV-Beschäftigte",
+        "source_note": "06/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Nürnberg_2_Teaser.pdf",
+      "snapshot": "Nürnberg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "offenbach",
+    "name": "Offenbach",
+    "region": "Hessen",
+    "stand": "15.10.2026",
+    "subtitle": "Vom Chemieareal zum Innovationscampus – Biotech, Industrie und Design",
+    "corridor": "Offenbach – Frankfurt (Rhein-Main)",
+    "teaser_headline": "Offenbach baut einen Campus. Jetzt braucht er ein Netzwerk.",
+    "teaser_intro": "Auf dem früheren Clariant-Gelände entsteht mit 36 Hektar die größte innerstädtische Entwicklungsfläche Offenbachs. SAMSON zieht mit rund 2.000 Beschäftigten ein, BioSpring plant langfristig bis zu 1.700 Arbeitsplätze. Was fehlt, ist eine Struktur, die die Unternehmen auf dem Campus verbindet.",
+    "kpis": [
+      {
+        "value": "36 ha",
+        "label": "Innovationscampus (ehem. Clariant-Areal)",
+        "source_note": "01/2026"
+      },
+      {
+        "value": "2.000",
+        "label": "Beschäftigte der SAMSON AG am neuen Hauptsitz",
+        "source_note": "01/2026"
+      },
+      {
+        "value": "bis 1.700",
+        "label": "Arbeitsplätze BioSpring langfristig (200 bis 2027)",
+        "source_note": "01/2026"
+      },
+      {
+        "value": "53.710",
+        "label": "SV-Beschäftigte (korrigiert), höchster Stand seit 1974",
+        "source_note": "06/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Offenbach_2_Teaser.pdf",
+      "snapshot": "Offenbach_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "paderborn",
+    "name": "Paderborn",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "IT- und Technikstandort im it's-OWL-Netz – ein Label läuft gerade aus",
+    "corridor": "Ostwestfalen-Lippe (keine Grenzlage)",
+    "teaser_headline": "Paderborn ist Teil eines der besten Technologienetzwerke Deutschlands. Was kommt nach SILVER?",
+    "teaser_intro": "Mit it's OWL und InnoZent OWL ist Paderborn in eine professionelle Clusterlandschaft eingebunden. Das SILVER-Label von InnoZent OWL steht zur Erneuerung an. Ein Vergleich mit GOLD-Clustern in Frankreich zeigt, worauf es bei der nächsten Bewertung ankommt.",
+    "kpis": [
+      {
+        "value": "157.777",
+        "label": "Einwohner",
+        "source_note": "31.12.2024"
+      },
+      {
+        "value": "135 Mio. €",
+        "label": "Gewerbesteuer-Ansatz 2026",
+        "source_note": "04/2026"
+      },
+      {
+        "value": "130,9 Mio. €",
+        "label": "Investitionen 2026",
+        "source_note": "04/2026"
+      },
+      {
+        "value": "220+",
+        "label": "Mitglieder im Netzwerk it's OWL (OWL-weit)",
+        "source_note": "06/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Paderborn_2_Teaser.pdf",
+      "snapshot": "Paderborn_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "passau",
+    "name": "Passau",
+    "region": "Bayern",
+    "stand": "15.10.2026",
+    "subtitle": "Antriebstechnik, Universität und die Grenze zu Oberösterreich",
+    "corridor": "Passau – Innviertel – Mühlviertel – Linz (DE–AT)",
+    "teaser_headline": "Passau hat Getriebe von Weltrang. Die Region dahinter ist noch nicht organisiert.",
+    "teaser_intro": "In Passau sitzt die ZF-Division Industrietechnik, die Getriebe und Achsen für Land- und Baumaschinen baut. Dazu kommen eine Universität mit Informatikfakultät und die Grenze zu Oberösterreich. Ein Netzwerk, das diese Stärken über die Grenze verbindet, gibt es nicht.",
+    "kpis": [
+      {
+        "value": "27.760",
+        "label": "Einpendler nach Passau",
+        "source_note": "30.06.2024"
+      },
+      {
+        "value": "7.315",
+        "label": "Beschäftigte im verarbeitenden Gewerbe",
+        "source_note": "30.09.2024"
+      },
+      {
+        "value": "10.568",
+        "label": "Studierende Universität Passau",
+        "source_note": "WS 2025/26"
+      },
+      {
+        "value": "61,5 Mio. €",
+        "label": "EFRE-Mittel Interreg Bayern–Österreich",
+        "source_note": "2021–2027"
+      }
+    ],
+    "files": {
+      "teaser": "Passau_2_Teaser.pdf",
+      "snapshot": "Passau_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "regensburg",
+    "name": "Regensburg",
+    "region": "Bayern",
+    "stand": "15.10.2026",
+    "subtitle": "Clusterstadt seit 1995 – Partner statt Neuaufbau",
+    "corridor": "Regensburg – Ostbayern (– Tschechien, nicht geprüft)",
+    "teaser_headline": "Regensburg hat zwölf Cluster. Welche wirken am stärksten?",
+    "teaser_intro": "Seit 1995 setzt Regensburg auf Cluster: von Biotech über IT-Security bis Mobility & Logistics, das als einer von wenigen deutschen Clustern das EUCLES-Label GOLD trägt. Mit einem neuen Oberbürgermeister und einem Finanzplan, der Prioritäten verlangt, ist ein Blick von außen sinnvoll.",
+    "kpis": [
+      {
+        "value": "12",
+        "label": "Cluster der Stadt seit 1995",
+        "source_note": "11/2024"
+      },
+      {
+        "value": "GOLD",
+        "label": "EUCLES: Cluster Mobility & Logistics",
+        "source_note": "bis 07/2027"
+      },
+      {
+        "value": "145.000",
+        "label": "SV-Arbeitsplätze in Regensburg",
+        "source_note": "11/2024"
+      },
+      {
+        "value": "245 Mio. €",
+        "label": "Gewerbesteuer-Ansatz 2026",
+        "source_note": "02/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Regensburg_2_Teaser.pdf",
+      "snapshot": "Regensburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "saarbruecken",
+    "name": "Saarbrücken",
+    "region": "Saarland",
+    "stand": "15.10.2026",
+    "subtitle": "Informatik von Weltrang an der französischen Grenze – in einer Stadt ohne finanziellen Spielraum",
+    "corridor": "Saarbrücken – Forbach – Sarreguemines (Eurodistrict SaarMoselle)",
+    "teaser_headline": "Saarbrücken hat Informatik von Weltrang. Und es liegt direkt an der Grenze zu Frankreich.",
+    "teaser_intro": "Am Saarland Informatics Campus forschen rund 1.000 Wissenschaftlerinnen und Wissenschaftler, über 80 Unternehmen sind seit 2010 daraus entstanden. Saarbrücken liegt direkt an der Grenze zur Moselle und bildet mit ihr den Eurodistrict SaarMoselle. Ein Format, das diese Stärke über die Grenze trägt, fehlt bisher.",
+    "kpis": [
+      {
+        "value": "1.000",
+        "label": "Forschende am Saarland Informatics Campus",
+        "source_note": "05/2025"
+      },
+      {
+        "value": "80+",
+        "label": "Ausgründungen aus dem Campus seit 2010",
+        "source_note": "05/2025"
+      },
+      {
+        "value": "600.000",
+        "label": "Einwohner im Kerngebiet des Eurodistricts SaarMoselle",
+        "source_note": "2027-Strategie"
+      },
+      {
+        "value": "bis 2.000",
+        "label": "Stellen bei Vetter in Saarlouis (500 bis 2031)",
+        "source_note": "05/2026"
+      }
+    ],
+    "files": {
+      "teaser": "Saarbrücken_2_Teaser.pdf",
+      "snapshot": "Saarbrücken_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "strassburg",
+    "name": "Straßburg",
+    "region": "Frankreich (Grand Est)",
+    "stand": "15.10.2026",
+    "subtitle": "Gesundheit, Hafen und ein neuer Wirtschaftsrat in der Eurometropole",
+    "corridor": "Strasbourg – Kehl – Ortenau (Eurodistrikt)",
+    "teaser_headline": "Straßburg sortiert seine Wirtschaftspolitik neu. Die andere Rheinseite gehört dazu.",
+    "teaser_intro": "Mit BioValley France, der ADIRA und einer großen Universität ist Straßburg gut aufgestellt. Nach der Wahl 2026 hat die Eurometropole einen Wirtschaftsrat gegründet, der Leitlinien für den Standort entwickeln soll. Direkt gegenüber liegen der größere Hafen in Kehl und wachsende Branchen in Ortenau und Freiburg.",
+    "kpis": [
+      {
+        "value": "517.386",
+        "label": "Einwohner der Eurometropole",
+        "source_note": "2022"
+      },
+      {
+        "value": "269.345",
+        "label": "Arbeitsplätze in der Eurometropole",
+        "source_note": "2022"
+      },
+      {
+        "value": "54.853",
+        "label": "Studierende Université de Strasbourg",
+        "source_note": "RSU 2023"
+      },
+      {
+        "value": "5,8 Mio. t",
+        "label": "Binnenschiffsverkehr Port de Strasbourg",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Straßburg_2_Teaser.pdf",
+      "snapshot": "Straßburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "stuttgart",
+    "name": "Stuttgart",
+    "region": "Baden-Württemberg",
+    "stand": "15.10.2026",
+    "subtitle": "Automobilregion im Umbruch – die Stadt spart, die Region steuert",
+    "corridor": "Region Stuttgart (keine Grenzlage)",
+    "teaser_headline": "Die Region Stuttgart baut neue Cluster auf. Europa hat das schon vorgemacht.",
+    "teaser_intro": "Im Automobilcluster der Region Stuttgart arbeiten rund 220.000 Menschen. Die WRS erwartet bis 2040 einen Rückgang um ein Drittel und setzt deshalb auf fünf Potenzialcluster, von Luft- und Raumfahrt bis GreenTech. Turin, Toulouse und Mulhouse zeigen, wie solche Felder als Cluster wachsen.",
+    "kpis": [
+      {
+        "value": "220.000",
+        "label": "SV-Beschäftigte im Automobilcluster der Region",
+        "source_note": "2026"
+      },
+      {
+        "value": "−34 %",
+        "label": "Prognose Beschäftigung Automobilcluster bis 2040 (ca. 83.000)",
+        "source_note": "2026"
+      },
+      {
+        "value": "1.900",
+        "label": "Stellenabbau Porsche in der Region bis 2029",
+        "source_note": "01/2026"
+      },
+      {
+        "value": "9",
+        "label": "Kern- und Potenzialcluster der WRS-Strategie",
+        "source_note": "2026"
+      }
+    ],
+    "files": {
+      "teaser": "Stuttgart_2_Teaser.pdf",
+      "snapshot": "Stuttgart_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "trier",
+    "name": "Trier",
+    "region": "Rheinland-Pfalz",
+    "stand": "15.10.2026",
+    "subtitle": "Gesundheit, KI-Transfer und Grenzraum Luxemburg",
+    "corridor": "Trier – Luxemburg – Metz / Großregion",
+    "teaser_headline": "Trier hat Profil in Gesundheit und KI, aber keine Organisation dafür.",
+    "teaser_intro": "Trier ist ein Dienstleistungs- und Gesundheitsstandort mit enger Verflechtung nach Luxemburg. Die Bausteine für ein eigenes Profil sind da: Gesundheitscampus, DFKI-Außenstelle, neue Gewerbeflächen und das Städtenetz QuattroPole. Eine professionelle Clusterorganisation, die diese Bausteine verbindet, gibt es bisher nicht.",
+    "kpis": [
+      {
+        "value": "111.235",
+        "label": "Einwohner (Hauptwohnsitz)",
+        "source_note": "31.12.2024"
+      },
+      {
+        "value": "55.760",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "2023"
+      },
+      {
+        "value": "30.092",
+        "label": "Einpendler",
+        "source_note": "2023"
+      },
+      {
+        "value": "53.360",
+        "label": "Grenzgänger aus DE nach Luxemburg",
+        "source_note": "2025"
+      }
+    ],
+    "files": {
+      "teaser": "Trier_2_Teaser.pdf",
+      "snapshot": "Trier_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "ulm",
+    "name": "Ulm",
+    "region": "Baden-Württemberg",
+    "stand": "15.10.2026",
+    "subtitle": "Batterieforschung von Weltrang, knapper Haushalt",
+    "corridor": "Ulm – Neu-Ulm (Baden-Württemberg – Bayern)",
+    "teaser_headline": "Ulm forscht auf Exzellenzniveau. Die Frage ist, was davon in der Region bleibt.",
+    "teaser_intro": "Das Exzellenzcluster POLiS zur Batterieforschung wurde 2025 erneut bewilligt, die Universität warb 2024 119,3 Mio. € Drittmittel ein, und in den Science Parks arbeiten über 11.000 Menschen. Gleichzeitig muss die Stadt sparen. Gerade dann zählt, dass Forschung zu Wertschöpfung vor Ort wird.",
+    "kpis": [
+      {
+        "value": "119,3 Mio. €",
+        "label": "Drittmittel Universität Ulm",
+        "source_note": "2024"
+      },
+      {
+        "value": "11.000+",
+        "label": "Arbeitsplätze in den Science Parks",
+        "source_note": "o. D."
+      },
+      {
+        "value": "−23 Mio. €",
+        "label": "Ordentliches Ergebnis Haushaltsentwurf 2026",
+        "source_note": "11/2025"
+      },
+      {
+        "value": "186 Mio. €",
+        "label": "Investitionen 2026 (Rekord)",
+        "source_note": "11/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Ulm_2_Teaser.pdf",
+      "snapshot": "Ulm_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "wiesbaden",
+    "name": "Wiesbaden",
+    "region": "Hessen",
+    "stand": "15.10.2026",
+    "subtitle": "Dienstleistungshauptstadt mit Chemiepark – und einem Rekordloch im Haushalt",
+    "corridor": "Wiesbaden – Mainz (Hessen – Rheinland-Pfalz)",
+    "teaser_headline": "Wiesbaden ist Verwaltungsstadt. Der Chemiepark ist das unterschätzte Profil.",
+    "teaser_intro": "Wiesbaden lebt vor allem von Verwaltung, Versicherungen und Dienstleistungen. Im Industriepark arbeiten trotzdem rund 5.800 Menschen in 75 Unternehmen aus Chemie, Pharma und Biotech. Gegenüber am Rhein liegt mit Mainz ein Biotech-Standort. Eine gemeinsame Clusterstruktur gibt es nicht.",
+    "kpis": [
+      {
+        "value": "151.366",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "30.09.2024"
+      },
+      {
+        "value": "5.800",
+        "label": "Beschäftigte im Industriepark Wiesbaden (75 Firmen)",
+        "source_note": "10/2025"
+      },
+      {
+        "value": "25,5 %",
+        "label": "Anteil Finanz-, Versicherungs- und Unternehmensdienste",
+        "source_note": "2024"
+      },
+      {
+        "value": "86.510",
+        "label": "Einpendler",
+        "source_note": "30.06.2024"
+      }
+    ],
+    "files": {
+      "teaser": "Wiesbaden_2_Teaser.pdf",
+      "snapshot": "Wiesbaden_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "wolfsburg",
+    "name": "Wolfsburg",
+    "region": "Niedersachsen",
+    "stand": "15.10.2026",
+    "subtitle": "Monostruktur im Umbau – „related diversity“ als Programm",
+    "corridor": "Region Braunschweig – Wolfsburg – Hannover",
+    "teaser_headline": "Wolfsburg setzt auf „related diversity“. Damit ist es im Kern eine Clusterstrategie.",
+    "teaser_intro": "Rund 90.000 Menschen arbeiten in Wolfsburg in der Automobilindustrie. VW baut in Deutschland bis 2030 rund 35.000 Stellen ab, die Gewerbesteuer ist 2024 um 40 % eingebrochen. Die Stadt antwortet mit einer Wirtschaftsagenda, die verwandte Branchen und Technologien bündeln will, von E-Mobilität bis Kreislaufwirtschaft. Die Frage ist, welche Felder schon tragen und wie sie organisiert werden.",
+    "kpis": [
+      {
+        "value": "~90.000",
+        "label": "Beschäftigte in der Automobilindustrie am Standort",
+        "source_note": "01/2025"
+      },
+      {
+        "value": "−40 %",
+        "label": "Gewerbesteuer 2024 (auf 151 Mio. €)",
+        "source_note": "10/2025"
+      },
+      {
+        "value": "455 Mio. €",
+        "label": "Erwarteter Kreditbedarf bis 2029",
+        "source_note": "10/2025"
+      },
+      {
+        "value": "35.000",
+        "label": "VW-Stellenabbau in Deutschland bis 2030",
+        "source_note": "2026"
+      }
+    ],
+    "files": {
+      "teaser": "Wolfsburg_2_Teaser.pdf",
+      "snapshot": "Wolfsburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "worms",
+    "name": "Worms",
+    "region": "Rheinland-Pfalz",
+    "stand": "15.10.2026",
+    "subtitle": "Industriestadt mit Flächennot, neuer Oberbürgermeisterin und Forderung nach Strategie",
+    "corridor": "Rhein-Achse Mainz – Worms – Mannheim/Ludwigshafen",
+    "teaser_headline": "Worms hat mehr Nachfrage als Fläche. Gefragt ist eine Strategie, wer kommen soll.",
+    "teaser_intro": "Worms ist eine Industriestadt mit 68 % Exportquote und überdurchschnittlicher Produktivität. Investoren fragten binnen eines Jahres 228 ha an, sofort verfügbar sind 7,6 ha. Unternehmen, Hochschule und Wirtschaftsförderung fordern deshalb eine Ansiedlungsstrategie mit klaren Kriterien. Mit dem Wechsel im Oberbürgermeisteramt ist jetzt der Zeitpunkt dafür.",
+    "kpis": [
+      {
+        "value": "85.609",
+        "label": "Einwohner",
+        "source_note": "31.12.2023"
+      },
+      {
+        "value": "35.256",
+        "label": "SV-Beschäftigte am Arbeitsort",
+        "source_note": "2023"
+      },
+      {
+        "value": "68 %",
+        "label": "Exportquote (Deutschland 2023: 48 %)",
+        "source_note": "Resolution 2025"
+      },
+      {
+        "value": "228 ha",
+        "label": "Flächenanfragen von Investoren",
+        "source_note": "07/2024–07/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Worms_2_Teaser.pdf",
+      "snapshot": "Worms_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "wuerzburg",
+    "name": "Würzburg",
+    "region": "Bayern",
+    "stand": "15.10.2026",
+    "subtitle": "RNA, Quantenmaterialien und Nanotechnologie – Transfer nach der Exzellenzrunde",
+    "corridor": "Mainfranken (Würzburg – Schweinfurt)",
+    "teaser_headline": "Würzburg hat zwei Exzellenzcluster. Jetzt geht es um den Standort.",
+    "teaser_intro": "Seit Januar 2026 fördern Bund und Land in Würzburg zwei Exzellenzcluster: NUCLEATE zu RNA- und DNA-Therapien und ctd.qmat zu Quantenmaterialien. Den Titel Exzellenzuniversität hat Würzburg im Oktober 2026 verpasst. Die Gesundheitswirtschaft wächst, eine regionale Clusterstruktur dafür gibt es nicht.",
+    "kpis": [
+      {
+        "value": "2",
+        "label": "Exzellenzcluster ab 2026 (NUCLEATE, ctd.qmat)",
+        "source_note": "22.05.2025"
+      },
+      {
+        "value": "25.295",
+        "label": "Studierende Universität Würzburg",
+        "source_note": "WS 2025/26"
+      },
+      {
+        "value": "+5.671",
+        "label": "Beschäftigte Gesundheit und Soziales 2011–2021",
+        "source_note": "2022"
+      },
+      {
+        "value": "10",
+        "label": "ERC-Grants in zwölf Monaten",
+        "source_note": "10/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Würzburg_2_Teaser.pdf",
+      "snapshot": "Würzburg_3_Snapshot.pdf"
+    }
+  },
+  {
+    "slug": "wuppertal",
+    "name": "Wuppertal",
+    "region": "Nordrhein-Westfalen",
+    "stand": "15.10.2026",
+    "subtitle": "Zuliefererregion im Umbruch, Haushaltssicherung bis in die 2030er",
+    "corridor": "Bergisches Land (Wuppertal – Solingen – Remscheid)",
+    "teaser_headline": "Wuppertals Zulieferer stehen vor neuen Märkten. Europa zeigt, welche.",
+    "teaser_intro": "Im Bergischen Land fertigen viele Betriebe Teile und Komponenten für die Automobilindustrie. Die Transformationsstrategie TRAIBER.NRW setzt auf Fachkräfte, Wissenstransfer und Internationalisierung. Französische und italienische Zuliefererregionen haben vorgemacht, wie der Wechsel in neue Märkte gelingt.",
+    "kpis": [
+      {
+        "value": "6",
+        "label": "Handlungsfelder der Transformationsstrategie TRAIBER.NRW",
+        "source_note": "11/2024"
+      },
+      {
+        "value": "8",
+        "label": "Städte und Kreise der Transformationsregion",
+        "source_note": "11/2024"
+      },
+      {
+        "value": "BMWK",
+        "label": "Förderung des Transformationsnetzwerks TRAIBER",
+        "source_note": "11/2024"
+      },
+      {
+        "value": "Neu",
+        "label": "Oberbürgermeisterin seit Herbst 2025",
+        "source_note": "09/2025"
+      }
+    ],
+    "files": {
+      "teaser": "Wuppertal_2_Teaser.pdf",
+      "snapshot": "Wuppertal_3_Snapshot.pdf"
+    }
+  }
+]
