@@ -1,23 +1,37 @@
 ---
 import Base from "./Base.astro";
+import { legal, openLegalItems } from "../config/legal";
 
 interface Props {
   title: string;
   description: string;
 }
 const { title, description } = Astro.props;
+const open = openLegalItems();
+if (open.length > 0) {
+  console.warn(`[Rechtstexte] Offene Pflichtangaben: ${open.join("; ")}`);
+}
 ---
 
 <Base title={title} description={description}>
   <div class="container-page py-14 md:py-20">
     <p class="rubric">Rechtliches</p>
-    <h1 class="mt-4 text-4xl">{title}</h1>
-    <p class="mt-6 max-w-2xl border-l-2 border-sand bg-sand-soft px-4 py-3 text-sm">
-      <strong class="font-medium">Platzhalter:</strong> Dieser Text ist eine Gliederung und muss vor Veröffentlichung
-      durch einen rechtlich geprüften Text ersetzt werden.
-    </p>
+    <h1 class="mt-4 text-3xl hyphens-auto break-words sm:text-4xl">{title}</h1>
+    {
+      open.length > 0 && (
+        <div class="mt-6 max-w-2xl border-l-2 border-sand bg-sand-soft px-4 py-3 text-sm">
+          <p class="font-medium">Vor Veröffentlichung zu ergänzen:</p>
+          <ul class="mt-1 list-disc pl-5">
+            {open.map((o) => (
+              <li>{o}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
     <div class="prose-legal mt-8">
       <slot />
     </div>
+    <p class="mt-12 text-sm text-grey-strong">Stand: {legal.updated}</p>
   </div>
 </Base>

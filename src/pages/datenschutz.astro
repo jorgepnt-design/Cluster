@@ -1,26 +1,285 @@
 ---
+/**
+ * Datenschutzerklärung. Die Abschnitte zu Hosting, Zahlungsanbieter, Formular-Dienst,
+ * Newsletter-Tool und Terminbuchung erscheinen automatisch passend zur Konfiguration
+ * in src/config/shop.ts, src/config/site.ts und src/config/legal.ts.
+ */
 import Legal from "../layouts/Legal.astro";
-import { site } from "../config/site";
+import { site, forms } from "../config/site";
+import { shop } from "../config/shop";
+import { legal, dpa, processors } from "../config/legal";
+
+const host = processors[legal.hosting];
+const payment = shop.provider === "none" ? null : processors[shop.provider];
+const merchantOfRecord = ["lemonsqueezy", "paddle", "digistore24"].includes(shop.provider);
+const contactViaFormspree = !!forms.contactEndpoint && forms.contactEndpoint.includes("formspree.io");
+const contactProvider = forms.contactEndpoint
+  ? contactViaFormspree
+    ? processors.formspree
+    : { name: "[Formular-Dienstleister bitte in datenschutz.astro ergänzen]", seat: "", privacyUrl: "", dpf: false }
+  : null;
+const leadProvider = forms.teaserLeadEndpoint
+  ? (legal.teaserLeadProvider ?? { name: "[Newsletter-Anbieter in src/config/legal.ts ergänzen]", seat: "", privacyUrl: "" })
+  : null;
+const booking = forms.bookingUrl ? (forms.bookingUrl.includes("calendly.com") ? processors.calendly : null) : null;
+
+const thirdCountry = (p: { seat: string; dpf?: boolean }) =>
+  p.seat === "USA"
+    ? p.dpf
+      ? "Der Anbieter ist nach dem EU-U.S. Data Privacy Framework zertifiziert. Für die Übermittlung in die USA besteht damit ein Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO)."
+      : "Die Übermittlung in die USA erfolgt auf Grundlage der Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO)."
+    : p.seat === "Vereinigtes Königreich"
+      ? "Für das Vereinigte Königreich besteht ein Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO)."
+      : "";
+
+let n = 0;
+const h = (t: string) => `${++n}. ${t}`;
 ---
 
-<Legal title="Datenschutzerklärung" description="Datenschutzerklärung von LOC-IN.">
-  <h2>1. Verantwortliche Stelle</h2>
-  <p>{site.person}, {site.address.street}, {site.address.city}, {site.email}</p>
-  <h2>2. Hosting und Server-Logfiles</h2>
-  <p>[PLATZHALTER: Hosting-Anbieter (z. B. Vercel oder GitHub Pages), Art der Logdaten, Rechtsgrundlage, Speicherdauer]</p>
-  <h2>3. Schriftarten</h2>
+<Legal title="Datenschutzerklärung" description="Datenschutzerklärung von LOC-IN: welche Daten wir verarbeiten, wozu und welche Rechte Sie haben.">
+  <h2>{h("Verantwortliche Stelle")}</h2>
+  <p>
+    Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+  </p>
+  <p>
+    {site.person}<br />
+    LOC-IN – {site.claim}<br />
+    {site.address.street}, {site.address.city}<br />
+    E-Mail: <a class="link" href={`mailto:${site.email}`}>{site.email}</a><br />
+    Telefon: {site.phone}
+  </p>
+  <p>Ein Datenschutzbeauftragter ist nicht bestellt, da hierzu keine gesetzliche Pflicht besteht.</p>
+
+  <h2>{h("Das Wichtigste in Kürze")}</h2>
+  <ul>
+    <li>Diese Website setzt keine Cookies und verwendet keine Analyse-, Tracking- oder Marketing-Werkzeuge.</li>
+    <li>Es werden keine Nutzungsprofile erstellt.</li>
+    <li>Schriftarten werden von unserem eigenen Server geladen, nicht von Google.</li>
+    <li>
+      Personenbezogene Daten verarbeiten wir nur, soweit dies für den Betrieb der Website, die Beantwortung Ihrer
+      Anfragen und die Abwicklung von Bestellungen erforderlich ist.
+    </li>
+  </ul>
+
+  <h2>{h("Hosting und Server-Logfiles")}</h2>
+  <p>
+    Diese Website wird bei {host.name} ({host.seat}) gehostet. Beim Aufruf der Website verarbeitet der Hoster
+    automatisch Daten, die Ihr Browser übermittelt (Server-Logfiles):
+  </p>
+  <ul>
+    <li>IP-Adresse des anfragenden Geräts</li>
+    <li>Datum und Uhrzeit des Zugriffs</li>
+    <li>aufgerufene Seite oder Datei</li>
+    <li>Referrer-URL (die zuvor besuchte Seite), sofern übermittelt</li>
+    <li>verwendeter Browser und Betriebssystem</li>
+  </ul>
+  <p>
+    Die Verarbeitung ist erforderlich, um die Website auszuliefern sowie ihre Sicherheit und Stabilität zu
+    gewährleisten, etwa zur Abwehr von Angriffen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes
+    Interesse liegt in der sicheren und fehlerfreien Bereitstellung der Website. Die Logdaten werden vom Hoster nach
+    kurzer Zeit gelöscht. Eine Zusammenführung mit anderen Datenquellen findet nicht statt.
+  </p>
+  <p>
+    Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. {thirdCountry(host)} Weitere
+    Informationen: <a class="link" href={host.privacyUrl} rel="noopener">Datenschutzerklärung von {host.name}</a>.
+  </p>
+
+  <h2>{h("Verschlüsselung")}</h2>
+  <p>
+    Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung
+    erkennen Sie an „https://“ in der Adresszeile Ihres Browsers.
+  </p>
+
+  <h2>{h("Cookies und lokale Speicherung")}</h2>
+  <p>
+    Diese Website speichert keine Informationen auf Ihrem Endgerät und liest keine Informationen von dort aus, die
+    nicht für den von Ihnen gewünschten Dienst unbedingt erforderlich sind (§ 25 TDDDG). Es werden keine Cookies
+    gesetzt. Ein Cookie-Banner ist daher nicht erforderlich.
+  </p>
+
+  <h2>{h("Schriftarten")}</h2>
   <p>
     Die Schriften Lora und Inter werden von unserem eigenen Server ausgeliefert. Beim Aufruf der Website wird keine
     Verbindung zu Google oder anderen Schriftanbietern hergestellt.
   </p>
-  <h2>4. Kein Tracking, keine Cookies</h2>
-  <p>Diese Website setzt derzeit keine Analyse- oder Marketing-Werkzeuge und keine Cookies ein.</p>
-  <h2>5. Kontaktformular und E-Mail</h2>
-  <p>[PLATZHALTER: Zweck, Rechtsgrundlage Art. 6 Abs. 1 lit. b/f DSGVO, ggf. Formular-Dienstleister, Speicherdauer]</p>
-  <h2>6. Teaser-Download und Newsletter</h2>
-  <p>[PLATZHALTER: Erhebung der E-Mail-Adresse, Einwilligung, eingesetztes Newsletter-Tool, Widerruf]</p>
-  <h2>7. Zahlungsabwicklung</h2>
-  <p>[PLATZHALTER: Eingesetzter Zahlungsanbieter (z. B. Stripe, Lemon Squeezy, Paddle, Digistore24) und Datenübermittlung]</p>
-  <h2>8. Ihre Rechte</h2>
-  <p>[PLATZHALTER: Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Beschwerde bei der Aufsichtsbehörde]</p>
+
+  <h2>{h("Kontakt per E-Mail, Telefon und Kontaktformular")}</h2>
+  <p>
+    Wenn Sie uns per E-Mail, telefonisch oder über das Kontaktformular kontaktieren, verarbeiten wir Ihre Angaben (Name,
+    Organisation, E-Mail-Adresse, gegebenenfalls Telefonnummer, gewählte Stadt, Anliegen und Nachricht), um Ihre Anfrage
+    zu beantworten.
+  </p>
+  <p>
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit einem Vertrag oder vorvertraglichen
+    Maßnahmen zusammenhängt, und im Übrigen Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der
+    Beantwortung von Anfragen. Wir löschen die Daten, sobald die Anfrage abschließend bearbeitet ist, sofern keine
+    gesetzlichen Aufbewahrungspflichten entgegenstehen.
+  </p>
+  {
+    contactProvider ? (
+      <p>
+        Das Kontaktformular wird über {contactProvider.name}
+        {contactProvider.seat && ` (${contactProvider.seat})`} übermittelt, der die Eingaben in unserem Auftrag
+        entgegennimmt und an uns weiterleitet. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28
+        DSGVO. {thirdCountry(contactProvider)}
+        {contactProvider.privacyUrl && (
+          <>
+            {" "}
+            Weitere Informationen:{" "}
+            <a class="link" href={contactProvider.privacyUrl} rel="noopener">
+              Datenschutzerklärung des Anbieters
+            </a>
+            .
+          </>
+        )}
+      </p>
+    ) : (
+      <p>
+        Das Kontaktformular übermittelt keine Daten an unseren Server. Es öffnet Ihr E-Mail-Programm mit einer
+        vorausgefüllten Nachricht, die Sie selbst absenden. Die Übermittlung erfolgt dann über Ihren E-Mail-Anbieter.
+      </p>
+    )
+  }
+
+  <h2>{h("Bestellungen")}</h2>
+  <p>
+    Für die Bestellung und Lieferung von Analysen verarbeiten wir Ihre Bestell- und Rechnungsdaten: Name, Organisation,
+    Rechnungsanschrift, E-Mail-Adresse, gegebenenfalls Umsatzsteuer-Identifikationsnummer, das bestellte Produkt sowie
+    Zahlungsinformationen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie Art. 6 Abs. 1 lit. c
+    DSGVO in Verbindung mit den handels- und steuerrechtlichen Aufbewahrungspflichten (§ 257 HGB, § 147 AO). Rechnungen
+    und Buchungsbelege bewahren wir für die gesetzlich vorgeschriebene Dauer auf.
+  </p>
+  {
+    payment && (
+      <p>
+        Die Zahlung wickeln wir über {payment.name} ({payment.seat}) ab. Wenn Sie den Kauf starten, werden Sie zur
+        Bezahlseite des Anbieters geleitet; die dort eingegebenen Daten (z. B. Name, E-Mail-Adresse, Rechnungsanschrift,
+        Zahlungsdaten) werden unmittelbar an den Anbieter übermittelt.
+        {merchantOfRecord
+          ? ` ${payment.name} tritt dabei als Verkäufer (Merchant of Record) auf und verarbeitet die Daten als eigenständig Verantwortlicher, insbesondere für Zahlungsabwicklung, Rechnungsstellung, Steuerabrechnung und Betrugsprävention. Wir erhalten die für die Abwicklung erforderlichen Bestellinformationen.`
+          : ` Der Anbieter verarbeitet die Zahlungsdaten zum Teil als eigenständig Verantwortlicher, etwa zur Betrugsprävention und zur Erfüllung eigener gesetzlicher Pflichten.`}{" "}
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. {thirdCountry(payment)} Weitere Informationen:{" "}
+        <a class="link" href={payment.privacyUrl} rel="noopener">
+          Datenschutzerklärung von {payment.name}
+        </a>
+        .
+      </p>
+    )
+  }
+
+  <h2>{h("Download der kostenlosen Teaser")}</h2>
+  {
+    leadProvider ? (
+      <>
+        <p>
+          Für den Download eines Teasers bitten wir um Ihre geschäftliche E-Mail-Adresse. Wir verarbeiten sie zusammen mit
+          der gewählten Stadt, um Ihnen den Teaser bereitzustellen und gegebenenfalls Rückfragen zu beantworten.
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.
+        </p>
+        <p>
+          Nur wenn Sie zusätzlich das entsprechende Kästchen ankreuzen, senden wir Ihnen gelegentlich Informationen zu
+          neuen Analysen per E-Mail. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie erhalten
+          zunächst eine E-Mail, in der Sie die Anmeldung bestätigen (Double-Opt-in). Sie können die Einwilligung jederzeit
+          mit Wirkung für die Zukunft widerrufen, etwa über den Abmeldelink in jeder E-Mail oder per Nachricht an{" "}
+          {site.email}. Die Daten werden bis zum Widerruf gespeichert.
+        </p>
+        <p>
+          Die Eingaben werden über {leadProvider.name}
+          {leadProvider.seat && ` (${leadProvider.seat})`} verarbeitet. Mit dem Anbieter besteht ein Vertrag zur
+          Auftragsverarbeitung nach Art. 28 DSGVO.
+          {leadProvider.privacyUrl && (
+            <>
+              {" "}
+              Weitere Informationen:{" "}
+              <a class="link" href={leadProvider.privacyUrl} rel="noopener">
+                Datenschutzerklärung des Anbieters
+              </a>
+              .
+            </>
+          )}
+        </p>
+      </>
+    ) : (
+      <p>
+        Die Teaser stehen ohne Angabe personenbezogener Daten zum Download bereit. Es werden dabei nur die unter
+        „Hosting und Server-Logfiles“ genannten Daten verarbeitet.
+      </p>
+    )
+  }
+
+  {
+    forms.bookingUrl && (
+      <>
+        <h2>{h("Terminbuchung")}</h2>
+        <p>
+          Für die Buchung eines Gesprächstermins verlinken wir auf
+          {booking ? ` den Dienst ${booking.name} (${booking.seat})` : " einen externen Terminbuchungsdienst"}. Erst wenn
+          Sie dem Link folgen, werden Daten an den Anbieter übertragen. Die dort eingegebenen Daten (Name, E-Mail-Adresse,
+          gewünschter Termin, gegebenenfalls Nachricht) verarbeiten wir zur Vorbereitung und Durchführung des Gesprächs.
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung
+          nach Art. 28 DSGVO.
+          {booking && (
+            <>
+              {" "}
+              {thirdCountry(booking)} Weitere Informationen:{" "}
+              <a class="link" href={booking.privacyUrl} rel="noopener">
+                Datenschutzerklärung von {booking.name}
+              </a>
+              .
+            </>
+          )}
+        </p>
+      </>
+    )
+  }
+
+  <h2>{h("Externe Links")}</h2>
+  <p>
+    Links zu anderen Websites sind als normale Verweise eingebunden. Daten werden erst übertragen, wenn Sie einem Link
+    folgen. Für die Verarbeitung auf der Zielseite ist deren Betreiber verantwortlich.
+  </p>
+
+  <h2>{h("Ihre Rechte")}</h2>
+  <p>Sie haben gegenüber uns folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+  <ul>
+    <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+    <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+    <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+    <li>Recht auf Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+  </ul>
+  <p>Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an {site.email}.</p>
+
+  <h2>{h("Widerspruchsrecht")}</h2>
+  <p class="border-l-2 border-green pl-4">
+    <strong class="font-medium">
+      Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die
+      sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen diese Verarbeitung einzulegen (Art. 21
+      DSGVO).
+    </strong>
+    Wir verarbeiten die Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die
+    Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder
+    Verteidigung von Rechtsansprüchen.
+  </p>
+
+  <h2>{h("Beschwerderecht bei einer Aufsichtsbehörde")}</h2>
+  <p>
+    Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Für uns zuständig
+    ist: {dpa.name}, {dpa.address},{" "}
+    <a class="link" href={dpa.url} rel="noopener">{dpa.url.replace("https://", "")}</a>.
+  </p>
+
+  <h2>{h("Pflicht zur Bereitstellung und automatisierte Entscheidungen")}</h2>
+  <p>
+    Sie sind nicht verpflichtet, uns personenbezogene Daten bereitzustellen. Ohne die für eine Bestellung erforderlichen
+    Angaben können wir jedoch keinen Vertrag schließen. Eine automatisierte Entscheidungsfindung einschließlich Profiling
+    (Art. 22 DSGVO) findet nicht statt.
+  </p>
+
+  <h2>{h("Änderungen dieser Datenschutzerklärung")}</h2>
+  <p>
+    Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die eingesetzten Dienste ändern. Es gilt die
+    jeweils hier veröffentlichte Fassung.
+  </p>
 </Legal>

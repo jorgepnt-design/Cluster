@@ -26,6 +26,7 @@ src/
     shop.ts        ← Zahlungsanbieter, Preise, Checkout-Links, Pakete
     site.ts        ← Kontaktdaten, Formular-Endpunkte, Terminbuchung
     products.ts    ← Angebotsstufen, Inhaltsverzeichnis des Snapshots
+    legal.ts       ← USt-ID, § 34c GewO, Hosting, Newsletter-Anbieter für die Rechtstexte
   data/
     cities.json    ← Daten der 39 Städte (unverändert übernommen)
   components/      ← Hero, Katalog, BuyButton, TeaserButton, FAQ, Kontakt …
@@ -114,7 +115,7 @@ Lemon Squeezy tritt als „Merchant of Record“ auf: Der Dienst rechnet die Ums
      },
    };
    ```
-   Mit `provider: "lemonsqueezy"` lädt die Seite automatisch das Lemon-Squeezy-Skript. Der Checkout öffnet sich dann als Overlay über der Seite. Wenn Sie lieber auf die Checkout-Seite wechseln wollen, entfernen Sie die Klasse `lemonsqueezy-button` in `src/components/BuyButton.astro`.
+   Der Button führt auf die Checkout-Seite von Lemon Squeezy. Das Overlay-Skript von Lemon Squeezy wird bewusst nicht eingebunden: Es würde schon beim Seitenaufruf Daten in die USA übertragen und damit eine Einwilligung (Cookie-Banner) erfordern.
 5. Build und Deployment.
 
 **Paddle / Digistore24:** Hier gehen Sie genauso vor. Sie tragen `provider` und die Checkout-URLs der Produkte in `checkoutLinks` ein.
@@ -123,6 +124,27 @@ Lemon Squeezy tritt als „Merchant of Record“ auf: Der Dienst rechnet die Ums
 
 - Die Einzelpreise stehen in `shop.pricesNet` (`snapshot`, `profil`). Sie erscheinen überall auf der Seite und in den strukturierten Daten (schema.org/Product).
 - Die Pakete stehen in `bundleOffers`: `enabled: false` blendet ein Paket aus, `priceNet: null` zeigt „Preis auf Anfrage“. Die Checkout-Links tragen Sie in `shop.bundles` ein.
+
+---
+
+## Rechtstexte und DSGVO
+
+Impressum, Datenschutzerklärung, AGB (nur B2B) und Widerrufsbelehrung sind ausformuliert. Die Datenschutzerklärung passt sich automatisch an die Konfiguration an: Hosting, Zahlungsanbieter, Formular-Dienst, Newsletter-Tool und Terminbuchung erscheinen nur, wenn sie in `shop.ts`, `site.ts` bzw. `legal.ts` aktiviert sind.
+
+**Datenschutz-Grundsätze der Seite**
+- keine Cookies, kein Tracking, keine Einbindung fremder Skripte oder Schriften beim Seitenaufruf → kein Cookie-Banner nötig
+- Kontaktformular ohne Endpunkt läuft über das E-Mail-Programm des Nutzers
+- Teaser-Formular (sobald aktiv): E-Mail nur für den Download; Newsletter nur mit separatem, nicht vorausgewähltem Häkchen und Double-Opt-in beim Newsletter-Tool
+
+**Offene Pflichtangaben** werden auf den Rechtsseiten in einem Hinweiskasten und als Meldung beim Build angezeigt, bis sie in `src/config/legal.ts` ausgefüllt sind:
+- `vatId`: Umsatzsteuer-ID oder `"keine"`
+- `brokerPermitAuthority`: Wenn Sie als Immobilienmaklerin tätig sind, ist eine Erlaubnis nach § 34c GewO nötig und die zuständige Aufsichtsbehörde muss ins Impressum. Sonst `"keine"`.
+
+**Vor dem Livegang prüfen**
+- Auftragsverarbeitungsvertrag (AVV/DPA) mit dem Hoster und jedem aktivierten Dienst abschließen bzw. akzeptieren (bei Vercel und GitHub Bestandteil der Nutzungsbedingungen).
+- Angaben zu den Dienstleistern (Sitz, Zertifizierung nach dem EU-U.S. Data Privacy Framework) in `src/config/legal.ts` mit den aktuellen Angaben der Anbieter abgleichen.
+- Geschäftliche Festlegungen in den AGB bestätigen oder anpassen: Zahlungsziel 14 Tage, Lieferung in der Regel binnen zwei Werktagen, Mängelanzeige binnen 14 Tagen, Verjährung ein Jahr, Gerichtsstand Darmstadt.
+- Die Texte sind sorgfältig erstellt, ersetzen aber keine Rechtsberatung. Eine Prüfung durch eine Anwältin oder einen Anwalt bzw. einen Rechtstexte-Dienst (z. B. IT-Recht Kanzlei, Händlerbund) wird empfohlen.
 
 ---
 
@@ -167,4 +189,7 @@ Der Workflow `.github/workflows/deploy.yml` liegt bereits im Repository.
 | Vorschaubilder der Teaser (optional) | `public/previews/<slug>.png` |
 | Foto Nicole Da Costa Pinto | `src/components/About.astro` (Platzhalter mit Kommentar) |
 | Inhaltsverzeichnis des Snapshots mit den PDFs abgleichen | `src/config/products.ts` → `snapshotToc` |
-| Rechtstexte: Impressum (USt-ID, V. i. S. d. MStV), Datenschutz, AGB, Widerruf | `src/pages/*.astro` |
+| USt-ID und Angabe zu § 34c GewO | `src/config/legal.ts` |
+| Hosting-Anbieter (Vercel oder GitHub Pages) | `src/config/legal.ts` → `hosting` |
+| Newsletter-Anbieter, sobald Teaser-Formular aktiv | `src/config/legal.ts` → `teaserLeadProvider` |
+| AGB-Festlegungen bestätigen, Rechtstexte prüfen lassen | `src/pages/agb.astro` u. a. |

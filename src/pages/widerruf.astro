@@ -1,20 +1,25 @@
 ---
 import Legal from "../layouts/Legal.astro";
 import { site } from "../config/site";
+import { url } from "../lib/cities";
 ---
 
-<Legal title="Widerrufsbelehrung" description="Widerrufsbelehrung für digitale Inhalte bei LOC-IN.">
+<Legal title="Widerrufsbelehrung" description="Hinweise zum Widerrufsrecht bei LOC-IN: Das Angebot richtet sich ausschließlich an Unternehmen und öffentliche Auftraggeber.">
+  <h2>Kein Widerrufsrecht für Unternehmen und öffentliche Auftraggeber</h2>
   <p>
-    {site.b2bNote} Ein gesetzliches Widerrufsrecht besteht für Unternehmer im Sinne des § 14 BGB nicht.
-    [PLATZHALTER: Prüfen, ob dieser Hinweis ausreicht oder eine vollständige Belehrung erforderlich ist.]
+    {site.b2bNote} Verträge mit Verbrauchern im Sinne von § 13 BGB werden nicht geschlossen (siehe
+    <a class="link" href={url("/agb")}>§ 1 Abs. 2 AGB</a>).
   </p>
-  <h2>Widerrufsrecht bei digitalen Inhalten</h2>
-  <p>[PLATZHALTER: Belehrung nach Art. 246a EGBGB, sofern Verbraucher nicht ausgeschlossen werden]</p>
-  <h2>Vorzeitiges Erlöschen des Widerrufsrechts</h2>
   <p>
-    [PLATZHALTER: Erlöschen bei digitalen Inhalten nach § 356 Abs. 5 BGB, wenn die Ausführung mit ausdrücklicher Zustimmung
-    vor Ablauf der Widerrufsfrist beginnt]
+    Das gesetzliche Widerrufsrecht für Fernabsatzverträge (§§ 312g, 355 BGB) steht nur Verbrauchern zu. Unternehmern,
+    juristischen Personen des öffentlichen Rechts und öffentlich-rechtlichen Sondervermögen steht kein gesetzliches
+    Widerrufsrecht zu.
   </p>
-  <h2>Muster-Widerrufsformular</h2>
-  <p>[PLATZHALTER]</p>
+
+  <h2>Kauf über einen Wiederverkäufer</h2>
+  <p>
+    Erfolgt der Kauf über einen Zahlungsanbieter, der als Verkäufer auftritt (Merchant of Record), gelten für den
+    Kaufvertrag zusätzlich dessen Bedingungen einschließlich etwaiger Regelungen zum Widerruf.
+  </p>
+
 </Legal>

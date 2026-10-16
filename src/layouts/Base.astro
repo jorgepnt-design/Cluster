@@ -4,7 +4,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Dialogs from "../components/Dialogs.astro";
 import { site } from "../config/site";
-import { shop } from "../config/shop";
 import { url } from "../lib/cities";
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import loraLatin from "@fontsource-variable/lora/files/lora-latin-wght-normal.woff2?url";
@@ -51,7 +50,6 @@ const ogImage = new URL(url("/og-image.png"), Astro.site).href;
     <link rel="preload" as="font" type="font/woff2" href={loraLatin} crossorigin />
 
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
-    {shop.provider === "lemonsqueezy" && <script is:inline src="https://app.lemonsqueezy.com/js/lemon.js" defer />}
   </head>
   <body class="min-h-screen flex flex-col">
     <a

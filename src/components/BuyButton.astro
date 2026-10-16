@@ -44,7 +44,6 @@ if (product === "snapshot") {
   text ??= product === "profil" ? "Clusterprofil anfragen" : "Mandat anfragen";
 }
 
-const isPurchase = product === "snapshot" || product === "bundle";
 const priceText = price ? `${formatPrice(price)} netto, ${shop.vatNote}` : "Preis auf Anfrage";
 const body = [
   `Guten Tag,`,
@@ -57,15 +56,16 @@ const body = [
   `USt-IdNr. (falls vorhanden):`,
   `Bestellnummer / Referenz (optional):`,
   ``,
+  `Wir bestellen als Unternehmen bzw. öffentlicher Auftraggeber (kein Verbraucher im Sinne von § 13 BGB). Es gelten die AGB von LOC-IN.`,
+  ``,
   `Mit freundlichen Grüßen`,
 ].join("\n");
 const mailto = `mailto:${shop.orderEmail}?subject=${encodeURIComponent(title.replace("Standort-Snapshot", "Snapshot"))}&body=${encodeURIComponent(body)}`;
-const lemon = shop.provider === "lemonsqueezy" && href && isPurchase ? " lemonsqueezy-button" : "";
 ---
 
 {
   href ? (
-    <a href={href} class={cls + lemon} data-product={product}>
+    <a href={href} class={cls} data-product={product}>
       {text}
     </a>
   ) : (
